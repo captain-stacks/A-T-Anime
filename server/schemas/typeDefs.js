@@ -13,6 +13,10 @@ const typeDefs = gql`
   type Query {
     me: User
   }
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): User
+  }
 `;
 
 // export the typeDefs
