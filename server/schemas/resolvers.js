@@ -29,7 +29,25 @@ const resolvers = {
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-      return {user, token};
+      return { token, user };
+    },
+
+    follow: async (parent, { followingId }, context) => {
+      if (context.user) {
+        const follower = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { following: followingId } },
+          { new: true }
+        ).populate('following');
+
+        const followedUser = await User.findOneAndUpdate(
+          { _id: followingId },
+          { $addToSet: { followers: context.user._id } },
+          { new: true }
+        ).populate('followers');
+
+        return follower;
+      }
     }
   }
 }
