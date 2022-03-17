@@ -6,10 +6,10 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    FollowerCount: Int
-    Followers: [User]
-    FollowingCount: Int
-    Following: [User]
+    followerCount: Int
+    followers: [User]
+    followingCount: Int
+    following: [User]
   }
 
   type Query {
