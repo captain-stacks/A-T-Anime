@@ -6,12 +6,15 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    friendCount: Int
-    friends: [User]
+    FollowerCount: Int
+    Followers: [User]
+    FollowingCount: Int
+    Following: [User]
   }
 
   type Query {
     me: User
+    users: [User]
   }
 
   type Mutation {
