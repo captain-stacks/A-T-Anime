@@ -17,6 +17,7 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Registersignup from './pages/Registerlogin';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,8 +47,8 @@ function App() {
           <div className="container">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/login" element={<Registersignup />} />
+              {/* <Route exact path="/signup" element={<Signup />} /> */}
               <Route exact path="/profile/:username?" element={<Profile />} />
               <Route exact path="/thought/:id" element={<SingleThought />} />
 
