@@ -2,6 +2,7 @@ import React from 'react';
 import ThoughtList from '../components/ThoughtList';
 import ThoughtForm from '../components/ThoughtForm';
 import FriendList from '../components/FriendList';
+import AnimeList from '../components/AnimeList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -11,6 +12,7 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const thoughts = data?.thoughts || [];
+  const animes = data?.animes || [];
 
   const loggedIn = Auth.loggedIn();
 
@@ -26,10 +28,16 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
+            <div>
+              <ThoughtList
+                thoughts={thoughts}
+                title="Top 10 Popular Anime Lists"
+              />
+              <AnimeList
+                animes={animes}
+                title="Top 10 Popular Anime Lists"
+              />
+            </div>
           )}
         </div>
         {loggedIn && userData ? (
