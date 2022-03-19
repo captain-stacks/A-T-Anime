@@ -19,6 +19,7 @@ const typeDefs = gql`
   }
 
   type MyAnime {
+    userId: String
     anime: Anime
   }
 
@@ -37,7 +38,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     follow(followingId: ID!): User
-    addAnime(animeId: ID!, name: String!, imageUrl: String!): MyAnime
+    addAnime(animeId: ID!): MyAnime
     createAnime(name: String!, imageUrl: String!): Anime
   }
 `;

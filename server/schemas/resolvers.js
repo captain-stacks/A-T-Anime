@@ -19,12 +19,21 @@ const resolvers = {
     },
     // get all users
     users: async () => {
-      return User.find()
+      const userData = User.find()
         .select("-__v -password")
         .populate("followers")
         .populate("following")
-        .populate("myAnime")
-        .populate("anime");
+        .populate({
+          path: 'myAnime',
+          model: 'MyAnime',
+          populate: {
+            path: 'anime',
+            model: 'Anime'
+          }
+        });
+
+      
+      return userData;
     },
   },
   Mutation: {
@@ -71,20 +80,15 @@ const resolvers = {
     // Takes anime and puts it in users list
     addAnime: async (parent, args, context) => {
       if (context.user) {
-        const myAnime = await MyAnime.create(context.user._id);
-        console.log(myAnime);
-
-/*         const updatedMyAnime = await MyAnime.findOneAndUpdate(
-          { _id: myAnime._id },
-          { $push: { anime: args.animeId }},
-          { new: true }
-        ); */
+        let myAnime = await MyAnime.create({ userId: context.user._id, anime: args.animeId });
+        myAnime = await myAnime.populate('anime').execPopulate();
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $push: { myAnime: myAnime._id } },
           { new: true }
         );
+        console.log(myAnime);
 
         return myAnime;
       }
