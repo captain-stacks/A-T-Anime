@@ -19,6 +19,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Anime from './pages/Anime';
 import YourList from './pages/YourList';
+import Registersignup from './pages/Registerlogin';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,8 +51,10 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path="/anime" element={<Anime />} />
               <Route exact path="/your-list" element={<YourList />} />
-              <Route exact path="/login" element={<Login />} />
+              {/* <Route exact path="/login" element={<Login />} /> */}
               <Route exact path="/signup" element={<Signup />} />
+              <Route exact path="/login" element={<Registersignup />} />
+              {/* <Route exact path="/signup" element={<Signup />} /> */}
               <Route exact path="/profile/:username?" element={<Profile />} />
               <Route exact path="/thought/:id" element={<SingleThought />} />
 
