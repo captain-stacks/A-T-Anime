@@ -10,7 +10,15 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("followers")
-          .populate("following");
+          .populate("following")
+          .populate({
+            path: 'myAnime',
+            model: 'MyAnime',
+            populate: {
+              path: 'anime',
+              model: 'Anime'
+            }
+          });
 
         return userData;
       }
@@ -32,7 +40,7 @@ const resolvers = {
           }
         });
 
-      
+
       return userData;
     },
   },
@@ -80,7 +88,7 @@ const resolvers = {
     // Takes anime and puts it in users list
     addAnime: async (parent, args, context) => {
       if (context.user) {
-        let myAnime = await MyAnime.create({ userId: context.user._id, anime: args.animeId });
+        let myAnime = await MyAnime.create({ userId: context.user._id, anime: [args.animeId] });
         myAnime = await myAnime.populate('anime').execPopulate();
 
         const updatedUser = await User.findOneAndUpdate(
