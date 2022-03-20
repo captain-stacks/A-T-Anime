@@ -22,34 +22,34 @@ db.once('open', async () => {
     const createdUsers = await User.collection.insertMany(userData);
 
     // create followers
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    for (let i = 0; i < 100; i += 1) {
+        const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+        const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-    let followerId = userId;
+        let followerId = userId;
 
-    while (followerId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
+        while (followerId === userId) {
+            const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+            followerId = createdUsers.ops[randomUserIndex];
+        }
+
+        await User.updateOne({ _id: userId }, { $addToSet: { followers: followerId } });
     }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { followers: followerId } });
-  }
 
     // create following
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
+    for (let i = 0; i < 100; i += 1) {
+        const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+        const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-    let followingId = userId;
+        let followingId = userId;
 
-    while (followingId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
+        while (followingId === userId) {
+            const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+            followingId = createdUsers.ops[randomUserIndex];
+        }
+
+        await User.updateOne({ _id: userId }, { $addToSet: { following: followingId } });
     }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { following: followingId } });
-  }
 
     console.log('Seeding complete');
     process.exit(0);
