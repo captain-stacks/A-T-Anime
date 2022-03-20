@@ -264,25 +264,38 @@ nav a:hover {
   border-radius: 5%;
 }
 
-.h3FavAnimesTitle{
-  background-color: rgba(0, 0, 0, .5);
-  display: inline;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 20em;
-}
-
 .btn-anime{
   display: block;
   margin: 0;
   overflow: hidden;
   padding: 0;
   text-align: center;
+  padding: 0;
+}
+
+.btn-anime :hover{
+  opacity: 0.7;
 }
 
 .spanFavAnimesTitle{
   padding: 15px 5px 5px;
   width: calc(100% - 5px - 5px);
+}
+
+.favAnimeContainer{
+  position: relative;
+}
+
+.h3FavAnimesTitle{
+  background-color: rgba(0, 0, 0, .8);
+  font-size: small;
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  width:100%;
+  overflow:hidden;
 }
 
 /* DISPLAY */
