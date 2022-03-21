@@ -2,6 +2,7 @@ const faker = require('faker');
 
 const db = require('../config/connection');
 const { User, MyAnime, Anime } = require('../models');
+const animeData = require('./animedb');
 
 db.once('open', async () => {
     await Anime.deleteMany({});
@@ -50,6 +51,10 @@ db.once('open', async () => {
 
         await User.updateOne({ _id: userId }, { $addToSet: { following: followingId } });
     }
+
+    //push anime data into anime Model db
+    const anime = await Anime.collection.insertMany(animeData);
+
 
     console.log('Seeding complete');
     process.exit(0);
