@@ -67,6 +67,8 @@ db.once('open', async () => {
             anime.push(addAnime);
         }
 
+        await User.updateOne({ _id: userId }, { $addToSet: { myAnime: anime } });
+
         userListData.push({userId, anime});
     }
     await MyAnime.collection.insertMany(userListData);
