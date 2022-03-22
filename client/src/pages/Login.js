@@ -41,15 +41,15 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+    <div className="col s12 m12 l6">
+      <div className="">
         <div className="card">
-          <h4 className="card-header">Login</h4>
-          <div className="card-body">
+          <h4 className="card-header">Log In</h4>
+          <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
                 className="form-input"
-                placeholder="Your email"
+                placeholder="Email"
                 name="email"
                 type="email"
                 id="email"
@@ -58,7 +58,7 @@ const Login = (props) => {
               />
               <input
                 className="form-input"
-                placeholder="******"
+                placeholder="Password"
                 name="password"
                 type="password"
                 id="password"
@@ -69,12 +69,15 @@ const Login = (props) => {
                 Submit
               </button>
             </form>
+            <p className='pLogin-Signup'>
+              Trouble logging in? Make sure browser cookies and JavaScript are enabled.
+            </p>
 
             {error && <div>Login failed</div>}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

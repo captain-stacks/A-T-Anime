@@ -13,14 +13,7 @@ const AnimeList = ({ animes, title }) => {
         animes.map(anime => (
           <div key={anime._id} className="card mb-3">
             <p className="card-header">
-              <Link
-                to={`/profile/${anime.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {anime.username}
-              </Link>{' '}
-              anime on {anime.createdAt}
+              
             </p>
             <div className="card-body">
               <Link to={`/anime/${anime._id}`}>

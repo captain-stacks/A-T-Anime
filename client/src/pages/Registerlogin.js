@@ -32,34 +32,36 @@ const Registersignup = () => {
 	}
 
 	return (
-		<div className='login-register-wrapper'>
-			<div className='nav-buttons'>
-				<animated.button
-					onClick={loginClicked}
-					id='loginBtn'
-					style={loginBtnProps}
-				>
-					Login
-				</animated.button>
-				<animated.button
-					onClick={registerClicked}
-					id='registerBtn'
-					style={registerBtnProps}
-				>
-					Register
-				</animated.button>
-			</div>
-			<div className='form-group'>
-				<animated.div action='' id='loginform' style={loginProps}>
-					<Login />
-				</animated.div>
-				<animated.div action='' id='registerform' style={registerProps}>
+		<div className='row card-panel teal lighten-2'>
+
+			<section className='col s12 m12 l6 lineBreak'>
+				<header className=''>
+					<h2 className=''>
+						Register
+					</h2>
+					<p className=''>
+						Register for a free A-T-Anime account
+					</p>
+				</header>
+				<div action='' id='registerform' style={registerProps}>
 					<Signup />
-				</animated.div>
-			</div>
-			<animated.div className='forgot-panel' style={loginProps}>
-				<a herf='#'>Forgot your password</a>
-			</animated.div>
+				</div>
+			</section>
+
+			<section className=''>
+				<header className='col s12 m12 l6'>
+					<h2 className=''>
+						Log In
+					</h2>
+					<p className=''>
+						Already have an account? Log in below.
+					</p>
+				</header>
+				<div action='' id='loginform' style={loginProps}>
+					<Login />
+				</div>
+			</section>
+
 		</div>
 	);
 };

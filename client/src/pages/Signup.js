@@ -38,15 +38,15 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
+    <div className="">
+      <div className="">
         <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
+          <h4 className="card-header">Register</h4>
+          <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
                 className="form-input"
-                placeholder="Your username"
+                placeholder="User Name"
                 name="username"
                 type="username"
                 id="username"
@@ -55,7 +55,7 @@ const Signup = () => {
               />
               <input
                 className="form-input"
-                placeholder="Your email"
+                placeholder="Email"
                 name="email"
                 type="email"
                 id="email"
@@ -64,7 +64,7 @@ const Signup = () => {
               />
               <input
                 className="form-input"
-                placeholder="******"
+                placeholder="Password"
                 name="password"
                 type="password"
                 id="password"
@@ -72,15 +72,18 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <button className="btn d-block w-100" type="submit">
-                Submit
+                Create Account
               </button>
             </form>
+            <p className='pLogin-Signup'>
+              By creating an account you're agreeing to the Terms and Conditions, and you confirm that you are at least 16 years or older
+            </p>
 
             {error && <div>Signup failed</div>}
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 
