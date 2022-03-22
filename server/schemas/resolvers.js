@@ -25,6 +25,20 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
+    user: async (parent, { userId }) => {
+      const userData = await User.findOne({ _id: userId })
+      .populate({
+        path: 'myAnime',
+        model: 'MyAnime',
+        populate: {
+          path: 'anime',
+          model: 'Anime'
+        }
+      });
+
+      return userData;
+    },
     // get all users
     users: async () => {
       const userData = User.find()
@@ -43,6 +57,18 @@ const resolvers = {
 
       return userData;
     },
+
+    animebyId: async (parent, { animeId }) => {
+      const anime = await Anime.findOne({ _id: animeId });
+
+      return anime;
+    },
+
+    allAnime: async () => {
+      const anime = await Anime.find();
+
+      return anime;
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -88,7 +114,7 @@ const resolvers = {
     // Takes anime and puts it in users list
     addAnime: async (parent, args, context) => {
       if (context.user) {
-        let myAnime = await MyAnime.create({ userId: context.user._id, anime: [args.animeId] });
+        let myAnime = await MyAnime.create({ userId: context.user._id, score: args.score, anime: [args.animeId] });
         myAnime = await myAnime.populate('anime').execPopulate();
 
         const updatedUser = await User.findOneAndUpdate(

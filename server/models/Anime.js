@@ -2,12 +2,49 @@ const {Schema, model} = require('mongoose');
 
 const animeSchema = new Schema(
     {
-        name: {
-            type: String,
-            required: true,
-            trim: true
+        englishTitle: {
+            type: String
         },
-        imageUrl: {
+        romajiTitle: {
+            type: String
+        },
+        nativeTitle: {
+            type: String
+        },
+        status: {
+            type: String
+        },
+        description: {
+            type: String
+        },
+        startDate: {
+            type: String
+        },
+        endDate: {
+            type: String
+        },
+        season: {
+            type: String
+        },
+        episodes: {
+            type: Number
+        },
+        coverImageLarge: {
+            type: String
+        },
+        coverImageMedium: {
+            type: String
+        },
+        bannerImage: {
+            type: String
+        },
+        popularity: {
+            type: Number
+        },
+        studioName: {
+            type: String
+        },
+        studioUrl: {
             type: String
         }
     }
