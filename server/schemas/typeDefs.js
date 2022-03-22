@@ -25,13 +25,27 @@ const typeDefs = gql`
 
   type Anime {
     _id: ID
-    name: String
-    imageUrl: String
+    title: String
+    type: String
+    format: String
+    status: String
+    description: String
+    startDate: year: Int, month: Int, day: Int
+    endDate: year: Int, month: Int, day: Int
+    season: String
+    episodes: Int
+    duration: Int
+    source: String
+    coverImage: large: String, medium: String
+    bannerImage: String
+    genres: [String]
+    studio: String
   }
 
   type Query {
     me: User
     users: [User]
+    anime: [Anime]
   }
 
   type Mutation {

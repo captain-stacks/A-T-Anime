@@ -54,6 +54,7 @@ db.once('open', async () => {
 
     //push anime data into anime Model db
     const anime = await Anime.collection.insertMany(animeData);
+    console.log(anime);
 
 
     console.log('Seeding complete');

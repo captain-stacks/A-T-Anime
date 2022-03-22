@@ -43,6 +43,14 @@ const resolvers = {
 
       return userData;
     },
+    // get all anime
+    anime: async () => {
+      const animeData = Anime.find()
+        .select("-__v");
+
+
+      return animeData;
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
