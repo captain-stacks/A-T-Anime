@@ -22,7 +22,7 @@ db.once('open', async () => {
 
     const createdUsers = await User.collection.insertMany(userData);
 
-    // create followers
+    // create followers for seeded users
     for (let i = 0; i < 100; i += 1) {
         const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
         const { _id: userId } = createdUsers.ops[randomUserIndex];
@@ -37,7 +37,7 @@ db.once('open', async () => {
         await User.updateOne({ _id: userId }, { $addToSet: { followers: followerId } });
     }
 
-    // create following
+    // create following for seeded users
     for (let i = 0; i < 100; i += 1) {
         const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
         const { _id: userId } = createdUsers.ops[randomUserIndex];
@@ -53,8 +53,24 @@ db.once('open', async () => {
     }
 
     //push anime data into anime Model db
-    const anime = await Anime.collection.insertMany(animeData);
-    console.log(anime);
+    const createdAnime = await Anime.collection.insertMany(animeData);
+
+    //creating random myanime lists for seeded users
+    const userListData = [];
+    for (let i = 0; i < 15; i += 1) {
+        const anime = []; 
+        const { _id: userId } = createdUsers.ops[i];
+
+        for (let i=0; i<5; i+= 1) {
+            const randomAnimeIndex = Math.floor(Math.random() * createdAnime.ops.length);
+            const addAnime = createdAnime.ops[randomAnimeIndex];
+            anime.push(addAnime);
+        }
+
+        userListData.push({userId, anime});
+    }
+    await MyAnime.collection.insertMany(userListData);
+    console.log(userListData);
 
 
     console.log('Seeding complete');
