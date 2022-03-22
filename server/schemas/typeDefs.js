@@ -42,7 +42,6 @@ const typeDefs = gql`
     coverImageLarge: String
     coverImageMedium: String
     bannerImage: String
-    popularity: Int
     genres: [String]
     studio: String
   }
@@ -77,7 +76,6 @@ const typeDefs = gql`
       coverImageLarge: String,
       coverImageMedium: String,
       bannerImage: String,
-      popularity: Int,
       genres: [String]
       studio: String
     ): Anime

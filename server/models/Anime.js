@@ -49,9 +49,6 @@ const animeSchema = new Schema({
     bannerImage: {
         type: String
     },
-    popularity: {
-        type: Number
-    },
     studioName: {
         type: String
     },
