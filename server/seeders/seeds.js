@@ -59,20 +59,32 @@ db.once('open', async () => {
     const userListData = [];
     for (let i = 0; i < 15; i += 1) {
         const anime = []; 
+        // Gets user ID
         const { _id: userId } = createdUsers.ops[i];
 
+        // Creates 5 Myanime for user
         for (let i=0; i<5; i+= 1) {
             const randomAnimeIndex = Math.floor(Math.random() * createdAnime.ops.length);
+            // Gets random anime
             const addAnime = createdAnime.ops[randomAnimeIndex];
-            anime.push(addAnime);
+            //anime.push(addAnime);
+
+            // Puts random anime in MyAnime
+            let myAnimedata = await MyAnime.create({ userId: userId, score: 5, anime: [addAnime._id] });
+            // Puts new MyAnime in User
+            const updatedUser = await User.findOneAndUpdate(
+                { _id: userId },
+                { $push: { myAnime: myAnimedata._id }},
+                { new: true }
+            );
         }
 
-        await User.updateOne({ _id: userId }, { $addToSet: { myAnime: anime } });
+        //await User.updateOne({ _id: userId }, { $addToSet: { myAnime: anime } });
 
-        userListData.push({userId, anime});
+        //userListData.push({userId, anime});
     }
-    await MyAnime.collection.insertMany(userListData);
-    console.log(userListData);
+    //await MyAnime.collection.insertMany(userListData);
+    //console.log(userListData);
 
 
     console.log('Seeding complete');
