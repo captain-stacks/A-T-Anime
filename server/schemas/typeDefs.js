@@ -20,26 +20,65 @@ const typeDefs = gql`
 
   type MyAnime {
     userId: String
+    score: Int
     anime: Anime
   }
 
   type Anime {
     _id: ID
-    name: String
-    imageUrl: String
+    englishTitle: String
+    romajiTitle: String
+    nativeTitle: String
+    type: String
+    format: String
+    status: String
+    description: String
+    startDate: String
+    endDate: String
+    season: String
+    episodes: Int
+    duration: Int
+    source: String
+    coverImageLarge: String
+    coverImageMedium: String
+    bannerImage: String
+    genres: [String]
+    studio: String
   }
 
   type Query {
     me: User
+    user(userId: ID!): User
     users: [User]
+    animebyId(animeId: ID!): Anime
+    allAnime: [Anime]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     follow(followingId: ID!): User
-    addAnime(animeId: ID!): MyAnime
-    createAnime(name: String!, imageUrl: String!): Anime
+    addAnime(animeId: ID!, score: Int): MyAnime
+    createAnime(
+      englishTitle: String,
+      romajiTitle: String,
+      nativeTitle: String,
+      type: String,
+      format: String,
+      status: String,
+      description: String,
+      startDate: String,
+      endDate: String,
+      season: String,
+      episodes: Int,
+      duration: Int
+      source: String
+      coverImageLarge: String,
+      coverImageMedium: String,
+      bannerImage: String,
+      genres: [String]
+      studio: String
+    ): Anime
   }
 `;
 
