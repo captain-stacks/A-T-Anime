@@ -20,6 +20,7 @@ const Login = (props) => {
 
   // submit form
   const handleFormSubmit = async (event) => {
+    console.log("submitting form");
     event.preventDefault();
 
     try {

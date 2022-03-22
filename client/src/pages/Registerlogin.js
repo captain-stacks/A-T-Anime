@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring';
 import Login from './Login';
 import Signup from './Signup';
 
-const Registersignup = () => {{
+const Registersignup = () => {
 	const [registrationFormStatus, setRegistartionFormStatus] = useState(false);
 	const loginProps = useSpring({
 		left: registrationFormStatus ? -500 : 0, // Login form sliding positions
@@ -50,18 +50,17 @@ const Registersignup = () => {{
 				</animated.button>
 			</div>
 			<div className='form-group'>
-				<animated.form action='' id='loginform' style={loginProps}>
+				<animated.div action='' id='loginform' style={loginProps}>
 					<Login />
-				</animated.form>
-				<animated.form action='' id='registerform' style={registerProps}>
+				</animated.div>
+				<animated.div action='' id='registerform' style={registerProps}>
 					<Signup />
-				</animated.form>
+				</animated.div>
 			</div>
 			<animated.div className='forgot-panel' style={loginProps}>
 				<a herf='#'>Forgot your password</a>
 			</animated.div>
 		</div>
 	);
-}
 };
 export default Registersignup;
