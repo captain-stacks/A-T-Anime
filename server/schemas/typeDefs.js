@@ -29,18 +29,22 @@ const typeDefs = gql`
     englishTitle: String
     romajiTitle: String
     nativeTitle: String
+    type: String
+    format: String
     status: String
     description: String
     startDate: String
     endDate: String
     season: String
     episodes: Int
+    duration: Int
+    source: String
     coverImageLarge: String
     coverImageMedium: String
     bannerImage: String
     popularity: Int
-    studioName: String
-    studioUrl: String
+    genres: [String]
+    studio: String
   }
 
   type Query {
@@ -60,18 +64,22 @@ const typeDefs = gql`
       englishTitle: String,
       romajiTitle: String,
       nativeTitle: String,
+      type: String,
+      format: String,
       status: String,
       description: String,
       startDate: String,
       endDate: String,
       season: String,
       episodes: Int,
+      duration: Int
+      source: String
       coverImageLarge: String,
       coverImageMedium: String,
       bannerImage: String,
       popularity: Int,
-      studioName: String,
-      studioUrl: String
+      genres: [String]
+      studio: String
     ): Anime
   }
 `;
