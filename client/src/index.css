@@ -186,6 +186,11 @@ nav a:hover {
   justify-content: center;
 }
 
+.anime-card-height{
+  height: 60vh;
+  width: 50%;
+}
+
 /* FORM */
 .form-label,
 .form-input,

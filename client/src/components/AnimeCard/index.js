@@ -3,21 +3,19 @@ import React from "react";
 export default function AnimeCard(props) {
 
     return (
-        <div className="">
-            <div className="">
-                <div className="col s12 m6 l4 ">
-                    <div className="card">
-                        <div className="card-image">
-                            <img alt=""src={props.image}/>
-                            {/* <span className ="card-title">{props.name}</span> */}
-                            {/* <a className ="btn-floating halfway-fab waves-effect waves-light red"><i className ="material-icons">Image</i></a> */}
-                        </div>
-                        {/* <div className="card-content">
-                            <p>{props.description}</p>
-                        </div> */}
-                    </div>
+        <li className="btn-anime col s12 m6 l4 ">
+            <div className="card">
+                <div className="card-image favAnimeImg">
+                    <a href={props.image} className="favAnimeContainer">
+                        <h3 className="">
+                            <span className="">
+                                {props.title}
+                            </span>
+                        </h3>
+                        <img className="favAnimeImg anime-card-height" alt="" src={props.image} />
+                    </a>
                 </div>
             </div>
-        </div>
+        </li>
     )
 }

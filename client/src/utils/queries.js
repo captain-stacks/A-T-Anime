@@ -1,5 +1,32 @@
 import { gql } from '@apollo/client';
 
+export const ALL_ANIME = gql`
+  query allAnime {
+    allAnime {
+      _id
+      englishTitle
+      romajiTitle
+      nativeTitle
+      type
+      format
+      status
+      description
+      startDate
+      endDate
+      season
+      episodes
+      duration
+      source
+      coverImageLarge
+      coverImageMedium
+      bannerImage
+      genres
+      studio
+    }
+  }
+`;
+
+
 export const QUERY_THOUGHTS = gql`
   query thoughts($username: String) {
     thoughts(username: $username) {
