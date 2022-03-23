@@ -6,10 +6,10 @@ import AnimeList from '../components/AnimeList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import { QUERY_THOUGHTS, QUERY_ME_BASIC, ALL_ANIME } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { loading, data } = useQuery(ALL_ANIME);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const thoughts = data?.thoughts || [];
   const animes = data?.animes || [];
@@ -19,20 +19,11 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-        {loggedIn && (
-          <div className="col-12 mb-3">
-            <ThoughtForm />
-          </div>
-        )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
             <div>
-              <ThoughtList
-                thoughts={thoughts}
-                title="Top 10 Popular Anime Lists"
-              />
               <AnimeList
                 animes={animes}
                 title="Top 10 Popular Anime Lists"
