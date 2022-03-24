@@ -2,7 +2,8 @@ const faker = require('faker');
 
 const db = require('../config/connection');
 const { User, MyAnime, Anime } = require('../models');
-const animeData = require('./animedb');
+//const animeData = require('./animedb');
+const animeData = require('./animeSeed');
 
 db.once('open', async () => {
     await Anime.deleteMany({});
