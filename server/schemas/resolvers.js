@@ -39,6 +39,20 @@ const resolvers = {
 
       return userData;
     },
+
+    userByUserName: async (parent, { userName }) => {
+      const userData = await User.findOne({ username: userName })
+      .populate({
+        path: 'myAnime',
+        model: 'MyAnime',
+        populate: {
+          path: 'anime',
+          model: 'Anime'
+        }
+      });
+
+      return userData;
+    },
     // get all users
     users: async () => {
       const userData = User.find()

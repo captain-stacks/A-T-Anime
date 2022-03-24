@@ -48,6 +48,7 @@ const typeDefs = gql`
   type Query {
     me: User
     user(userId: ID!): User
+    userByUserName(userName: String!): User
     users: [User]
     animebyId(animeId: ID!): Anime
     allAnime: [Anime]
