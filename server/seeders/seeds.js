@@ -2,7 +2,8 @@ const faker = require('faker');
 
 const db = require('../config/connection');
 const { User, MyAnime, Anime } = require('../models');
-const animeData = require('./animedb');
+//const animeData = require('./animedb');
+const animeData = require('./animeSeed');
 
 db.once('open', async () => {
     await Anime.deleteMany({});
@@ -12,7 +13,7 @@ db.once('open', async () => {
     // create user data seed
     const userData = [];
 
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 75; i += 1) {
         const username = faker.internet.userName();
         const email = faker.internet.email(username);
         const password = faker.internet.password();
