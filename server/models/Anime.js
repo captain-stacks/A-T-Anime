@@ -49,10 +49,7 @@ const animeSchema = new Schema({
     bannerImage: {
         type: String
     },
-    genres: [String],
-    studio: {
-        type: String
-    }
+    genres: [String]
 })
 const Anime = model('Anime', animeSchema);
 

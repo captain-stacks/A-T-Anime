@@ -43,7 +43,6 @@ const typeDefs = gql`
     coverImageMedium: String
     bannerImage: String
     genres: [String]
-    studio: String
   }
 
   type Query {
@@ -77,7 +76,6 @@ const typeDefs = gql`
       coverImageMedium: String,
       bannerImage: String,
       genres: [String]
-      studio: String
     ): Anime
   }
 `;
