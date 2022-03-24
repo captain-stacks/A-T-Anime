@@ -21,9 +21,77 @@ export const ALL_ANIME = gql`
       coverImageMedium
       bannerImage
       genres
-      studio
     }
   }
+`;
+
+export const QUERY_ALL_USERS = gql`
+  query Users {
+  users {
+    _id
+    username
+    email
+    followerCount
+    followingCount
+    myAnime {
+      userId
+      score
+      anime {
+        _id
+        englishTitle
+        romajiTitle
+        nativeTitle
+        type
+        format
+        status
+        description
+        startDate
+        endDate
+        season
+        episodes
+        duration
+        source
+        coverImageLarge
+        coverImageMedium
+        bannerImage
+        genres
+      }
+    }
+  }
+}
+`;
+
+export const QUERY_USER_BY_ID = gql`
+  query Query($userId: ID!) {
+  user(userId: $userId) {
+    myAnime {
+      userId
+      score
+      anime {
+        _id
+        englishTitle
+        romajiTitle
+        nativeTitle
+        type
+        format
+        status
+        description
+        startDate
+        endDate
+        season
+        episodes
+        duration
+        source
+        coverImageLarge
+        coverImageMedium
+        bannerImage
+        genres
+      }
+    }
+    _id
+    username
+  }
+}
 `;
 
 
