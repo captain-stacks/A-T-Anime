@@ -156,10 +156,11 @@ nav a:hover {
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
+  border: 3px solid black;
   border-radius: var(--border-radius);
   background-color: var(--light);
-  color: var(--dark);
+  height: 80%;
+  /* color: var(--dark); */
 }
 
 .card-header {
@@ -184,11 +185,6 @@ nav a:hover {
   text-align: center;
   align-items: center; 
   justify-content: center;
-}
-
-.anime-card-height{
-  height: 60vh;
-  width: 50%;
 }
 
 /* FORM */
@@ -288,15 +284,15 @@ nav a:hover {
 
 .favAnimeImg{
   border-radius: 5%;
+  height: 60vh;
 }
 
 .btn-anime{
   display: block;
   margin: 0;
-  overflow: hidden;
   padding: 0;
+ overflow: hidden;
   text-align: center;
-  padding: 0;
 }
 
 .btn-anime :hover{
@@ -309,7 +305,7 @@ nav a:hover {
 }
 
 .favAnimeContainer{
-  position: relative;
+  /* position: relative; */
 }
 
 .h3FavAnimesTitle{

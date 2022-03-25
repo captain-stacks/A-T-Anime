@@ -50,7 +50,7 @@ const Profile = () => {
         </h2>
       </div>
 
-      <div className="flex-row justify-space-between mb-3">
+      <div className="justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ul className='row'>
             {
