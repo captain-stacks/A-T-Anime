@@ -58,7 +58,7 @@ db.once('open', async () => {
 
     //creating random myanime lists for seeded users
     const userListData = [];
-    for (let i = 0; i < 15; i += 1) {
+    for (let i = 0; i < 75; i += 1) {
         const anime = []; 
         // Gets user ID
         const { _id: userId } = createdUsers.ops[i];
