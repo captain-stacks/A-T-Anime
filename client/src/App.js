@@ -48,15 +48,16 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/anime" element={<Anime />} />
-              <Route exact path="/your-list" element={<YourList />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/anime" element={<Anime />} />
+              <Route path="/your-list" element={<YourList />} />
               {/* <Route exact path="/login" element={<Login />} /> */}
-              <Route exact path="/signup" element={<Signup />} />
-              <Route exact path="/login" element={<Registersignup />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Registersignup />} />
               {/* <Route exact path="/signup" element={<Signup />} /> */}
-              <Route exact path="/profile/:username?" element={<Profile />} />
-              <Route exact path="/thought/:id" element={<SingleThought />} />
+              <Route path="/profile/:username" element={<Profile />} />
+              <Route path="/profile/" element={<Profile />} />
+              <Route path="/thought/:id" element={<SingleThought />} />
 
               <Route element={<NoMatch />} />
             </Routes>
