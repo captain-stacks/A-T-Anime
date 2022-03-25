@@ -11,14 +11,18 @@ const Home = () => {
   
   const [searchedUser, setSearchedUser] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  const {loading, singleData} = useQuery(Query_User_Search, { variables: { userName: searchedUser} });
-  const users = singleData?.users || [];
-  
+  const {loading, data} = useQuery(Query_User_Search, { variables: { userName: searchInput} });
+  const users = data?.userSearchBar|| [];
+  console.log(users);
   const loggedIn = Auth.loggedIn();
   
 
+  // useEffect(() => {
+  //   handleSearch(searchInput);
+  // }, []);
+
   const handleSearch = async query => {
-    setSearchedUser(query);
+    setSearchInput(query);
   }
 
 
@@ -35,11 +39,11 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-      <form class="col s12" onSubmit={handleFormSubmit}>
-            <div class="row">
+      <form className="col s12" onSubmit={handleFormSubmit}>
+            <div className="row">
                 <div className="search-wrapper focused">
-                    <input id="search" placeholder="Type to search user..." value={searchInput} onSubmit={e => setSearchInput(e.target.value)}><i className="material-icons">search</i></input>
-                    <label for="search">Find a User: </label>
+                    <input id="search" placeholder="Type to search user..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
+                    <label htmlFor="search">Find a User: </label>
                 </div>
                 <button type="submit"></button>
             </div>

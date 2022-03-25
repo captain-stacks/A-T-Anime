@@ -8,7 +8,6 @@ const AllUsersList = ({ users, title }) => {
         return <h3>No users Yet</h3>;
     }
 
-    console.log(users[0].myAnime[0].anime.romajiTitle);
     
 
     return (
