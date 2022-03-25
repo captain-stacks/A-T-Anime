@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-
+import AnimeCard from '../components/AnimeCard'
 
 
 import { useQuery } from '@apollo/client';
@@ -16,16 +16,16 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.userByUserName || {};
-  
 
-  console.log(user);
+
+  console.log(user.myAnime);
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />;
   }
 
-  
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -49,14 +49,21 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
       </div>
-      
+
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-
-        </div>
-
-        <div className="col-12 col-lg-3 mb-3">
-
+          <ul className='row'>
+            {
+              user.myAnime.map(animeList => (
+                <AnimeCard
+                  key={animeList.anime._id}
+                  title={animeList.anime.romajiTitle}
+                  description={animeList.anime.description}
+                  image={animeList.anime.coverImageLarge}
+                />
+              ))
+            }
+          </ul>
         </div>
       </div>
     </div>
