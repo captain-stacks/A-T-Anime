@@ -53,6 +53,13 @@ const resolvers = {
 
       return userData;
     },
+    userSearchBar: async (parent, { userName }) => {
+      const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
+        if (err) console.log(err);
+        console.log(userName);
+        });
+      return user;
+    },
     // get all users
     users: async () => {
       const userData = User.find()

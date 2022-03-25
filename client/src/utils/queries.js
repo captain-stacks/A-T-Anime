@@ -223,3 +223,42 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+export const Query_User_Search = gql `
+query userSearchBar($userName: String!) {
+  userSearchBar(userName: $userName) {
+    _id
+    username
+    email
+    followerCount
+    followingCount
+    following {
+      username
+    }
+    myAnime {
+      userId
+      score
+      anime {
+        _id
+        englishTitle
+        nativeTitle
+        romajiTitle
+        type
+        format
+        status
+        description
+        startDate
+        endDate
+        season
+        episodes
+        duration
+        source
+        coverImageLarge
+        coverImageMedium
+        bannerImage
+        genres
+      }
+    }
+  }
+}
+`;
