@@ -3,26 +3,19 @@ import AllUsersList from '../components/AllUsersList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import {  QUERY_ALL_USERS, Query_User_Search } from '../utils/queries';
+import { Query_User_Search } from '../utils/queries';
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_ALL_USERS);
-  // let users = data?.users || [];
-  
   const [searchedUser, setSearchedUser] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  const {loading, data} = useQuery(Query_User_Search, { variables: { userName: searchInput} });
+  const {loading, data} = useQuery(Query_User_Search, { variables: { userName: searchedUser} });
   const users = data?.userSearchBar|| [];
   console.log(users);
   const loggedIn = Auth.loggedIn();
   
 
-  // useEffect(() => {
-  //   handleSearch(searchInput);
-  // }, []);
-
   const handleSearch = async query => {
-    setSearchInput(query);
+    setSearchedUser(query);
   }
 
 
