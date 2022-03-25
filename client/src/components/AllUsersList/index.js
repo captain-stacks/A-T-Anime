@@ -11,7 +11,6 @@ const AllUsersList = ({ users, title }) => {
 
     return (
         <div>
-            <h3>{title}</h3>
             {users &&
                 users.map(user => (
                     <div key={user._id} className="card mb-3">
@@ -26,16 +25,7 @@ const AllUsersList = ({ users, title }) => {
                         </p>
                         <div className="card-body">
                             <ul className='row'>
-                                {
-                                    user.myAnime.map(animeList => (
-                                        <AnimeCard
-                                            key={animeList.anime._id}
-                                            title={animeList.anime.romajiTitle}
-                                            description={animeList.anime.description}
-                                            image={animeList.anime.coverImageLarge}
-                                        />
-                                    ))
-                                }
+                                
                             </ul>
 
                         </div>

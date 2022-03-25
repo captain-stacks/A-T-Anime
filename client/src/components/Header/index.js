@@ -17,7 +17,6 @@ const Header = () => {
         <h1><Link to="/">ATAnime</Link></h1>
         <Link to="/">Home</Link>
         <Link to="/anime">Anime</Link>
-        <Link to="/your-list">Your List</Link>
 
         <nav className="text-center">
           {Auth.loggedIn() ? (

@@ -35,7 +35,7 @@ const AllAnime = () => {
                     ))
                 }
             </ul>
-            <button onClick={prev} disabled={page === 1}>previous page</button><span>{page}</span><button onClick={next}>Next page</button>
+            <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
         </div>
     );
 };
