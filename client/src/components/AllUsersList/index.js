@@ -9,9 +9,6 @@ const AllUsersList = ({ users, title }) => {
         return <h3>No users Yet</h3>;
     }
 
-    console.log(users);
-
-
     return (
         <div>
             <h3>{title}</h3>
