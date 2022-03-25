@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER_BY_ID } from '../../utils/queries';
+import AnimeCard from '../AnimeCard';
 
 const AllUsersList = ({ users, title }) => {
     if (!users.length) {
         return <h3>No users Yet</h3>;
     }
 
-    console.log(users[0].myAnime[0].anime.romajiTitle);
-    
+    console.log(users);
+
 
     return (
         <div>
@@ -27,17 +28,24 @@ const AllUsersList = ({ users, title }) => {
                             </Link>
                         </p>
                         <div className="card-body">
-                            <Link to={`/user/${user._id}`}>
-                                <p>{user.followerCount}</p>
-                                <p className="mb-0">
-                                    Following Count: {user.followingCount} || Click to{' '}
-                                    {user.reactionCount ? 'see' : 'start'} the discussion!
-                                </p>
-                            </Link>
+                            <ul className='row'>
+                                {
+                                    user.myAnime.map(animeList => (
+                                        <AnimeCard
+                                            key={animeList.anime._id}
+                                            title={animeList.anime.romajiTitle}
+                                            description={animeList.anime.description}
+                                            image={animeList.anime.coverImageLarge}
+                                        />
+                                    ))
+                                }
+                            </ul>
+
                         </div>
                     </div>
-                ))}
-        </div>
+                ))
+            }
+        </div >
     );
 };
 
