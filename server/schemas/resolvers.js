@@ -78,8 +78,10 @@ const resolvers = {
       return anime;
     },
 
-    allAnime: async () => {
-      const anime = await Anime.find();
+    allAnime: async (parent , { page }) => {
+      const anime = await Anime.find()
+      .limit(51)
+      .skip((page * 51) - 51);
 
       return anime;
     }

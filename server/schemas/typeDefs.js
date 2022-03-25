@@ -51,7 +51,7 @@ const typeDefs = gql`
     userByUserName(userName: String!): User
     users: [User]
     animebyId(animeId: ID!): Anime
-    allAnime: [Anime]
+    allAnime(page: Int): [Anime]
   }
 
   type Mutation {

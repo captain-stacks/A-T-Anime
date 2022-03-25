@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const ALL_ANIME = gql`
-  query allAnime {
-    allAnime {
+  query allAnime($page: Int) {
+    allAnime(page: $page) {
       _id
       englishTitle
       romajiTitle
