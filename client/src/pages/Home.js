@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
+      <div className="">
         <form className="col s12" onSubmit={handleFormSubmit}>
           <div className="row">
             <div className="search-wrapper focused">
@@ -49,7 +49,7 @@ const Home = () => {
             <button type="submit"></button>
           </div>
         </form>
-        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+        <div className={`col-12 mb-3 ${loggedIn}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
