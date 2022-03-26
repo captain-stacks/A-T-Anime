@@ -4,12 +4,14 @@ import { useQuery, useMutation  } from '@apollo/client';
 import { ADD_ANIME } from '../../utils/mutations';
 
 
-const AddToMyList = () => {
+
+const AddToMyList = ({animeId}) => {
+
     const [addAnime] = useMutation(ADD_ANIME);
     const handleClick = async() =>{
         try{
             await addAnime ({
-                variables: {userId: this.user._id, anime: this.anime._id}
+                variables: {animeId: animeId}
             })
         } catch (e){
             console.error(e);
