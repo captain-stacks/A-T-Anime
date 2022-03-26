@@ -80,3 +80,13 @@ export const REMOVE_FRIEND = gql`
     }
   }
 `;
+
+export const FOLLOW_USER = gql`
+  mutation Mutation($followingId: ID!) {
+  follow(followingId: $followingId) {
+    _id
+    username
+    email
+  }
+}
+`

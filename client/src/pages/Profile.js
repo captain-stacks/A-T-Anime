@@ -3,8 +3,10 @@ import { Navigate, useParams, Link } from 'react-router-dom';
 import AnimeCard from '../components/AnimeCard'
 
 
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
+
+import { FOLLOW_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -16,6 +18,8 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.userByUserName || {};
+
+  const [followUser] = useMutation(FOLLOW_USER);
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -37,6 +41,16 @@ const Profile = () => {
     );
   }
 
+  const handleClick = async () => {
+    try {
+      await followUser({
+        variables: { followingId: user._id },
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
 
 
   return (
@@ -45,7 +59,7 @@ const Profile = () => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
-        {userParam ? <button>Follow</button> : ``}
+        { Auth.loggedIn() ? (userParam ? <button onClick={handleClick}>Follow</button> : ``) : ""}
       </div>
 
       <div className="justify-space-between mb-3">
@@ -78,7 +92,7 @@ const Profile = () => {
                             style={{ fontWeight: 700, display: 'block' }}
                             className="text-dark"
                           >
-                              <div className='col'>
+                              <div  className='col'>
                                 {list.username}
                               </div>
                           </Link>
