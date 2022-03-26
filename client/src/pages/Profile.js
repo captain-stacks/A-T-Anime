@@ -45,7 +45,7 @@ const Profile = () => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
-        {userParam ? `` : <button>test</button>}
+        {userParam ? <button>Follow</button> : ``}
       </div>
 
       <div className="justify-space-between mb-3">
