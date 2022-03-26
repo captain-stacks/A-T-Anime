@@ -52,7 +52,7 @@ const typeDefs = gql`
     users: [User]
     animebyId(animeId: ID!): Anime
     allAnime(page: Int): [Anime]
-    userSearchBar(userName: String!): [User]
+    userSearchBar(page: Int!, userName: String!): [User]
     getAnimeBySearch(page: Int!, title: String!): [Anime]
   }
 

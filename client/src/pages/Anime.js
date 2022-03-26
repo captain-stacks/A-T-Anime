@@ -36,7 +36,7 @@ const AllAnime = () => {
 
         if (!input) {
             return false;
-          }
+        }
 
         handleSearch(input);
     }

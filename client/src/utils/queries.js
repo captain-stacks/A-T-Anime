@@ -225,8 +225,8 @@ export const QUERY_ME_BASIC = gql`
 `;
 
 export const Query_User_Search = gql `
-query userSearchBar($userName: String!) {
-  userSearchBar(userName: $userName) {
+query userSearchBar($page: Int!, $userName: String!) {
+  userSearchBar(page: $page, userName: $userName) {
     _id
     username
     email

@@ -54,7 +54,7 @@ const resolvers = {
       return userData;
     },
 
-    userSearchBar: async (parent, { userName }) => {
+    userSearchBar: async (parent, { page, userName }) => {
       const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
         if (err) console.log(err);
         console.log(userName);
@@ -66,7 +66,9 @@ const resolvers = {
             path: 'anime',
             model: 'Anime'
           }
-        });
+        })
+        .limit(52)
+        .skip((page * 52) - 52);
       return user;
     },
 
