@@ -42,6 +42,8 @@ const resolvers = {
 
     userByUserName: async (parent, { userName }) => {
       const userData = await User.findOne({ username: userName })
+      .populate("followers")
+      .populate("following")
       .populate({
         path: 'myAnime',
         model: 'MyAnime',
@@ -59,6 +61,8 @@ const resolvers = {
         if (err) console.log(err);
         console.log(userName);
         })
+        .populate("followers")
+        .populate("following")
         .populate({
           path: 'myAnime',
           model: 'MyAnime',
