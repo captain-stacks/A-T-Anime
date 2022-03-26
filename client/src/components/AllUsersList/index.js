@@ -18,8 +18,7 @@ const AllUsersList = ({ users, title }) => {
                                     style={{ fontWeight: 700 }}
                                     className="text-dark"
                                 >
-                                    <img className="setVH"src={user.myAnime[0].anime.coverImageLarge} alt={user.myAnime[0].anime.romajiTitle} >
-                                        
+                                    <img className="setVH" src={user.myAnime[0].anime.coverImageLarge} alt={user.myAnime[0].anime.romajiTitle} >
                                     </img>
 
                                 </Link>

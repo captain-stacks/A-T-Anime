@@ -140,6 +140,7 @@ export const QUERY_USER = gql`
       followerCount
       followingCount
       following {
+        _id
         username
       }
       myAnime {
@@ -179,6 +180,7 @@ export const QUERY_ME = gql`
       followerCount
       followingCount
       following {
+        _id
         username
       }
       myAnime {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams, Link } from 'react-router-dom';
 import AnimeCard from '../components/AnimeCard'
 
 
@@ -16,9 +16,6 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.userByUserName || {};
-
-
-  console.log(user.myAnime);
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -52,8 +49,8 @@ const Profile = () => {
       </div>
 
       <div className="justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
-          <ul className='row'>
+        <div className="row">
+          <ul className='col s9'>
             {
               user.myAnime.map(animeList => (
                 <AnimeCard
@@ -65,6 +62,33 @@ const Profile = () => {
               ))
             }
           </ul>
+          {
+            user.following.map(list => (
+              <Link
+                key={list._id}
+                to={`/profile/${list.username}`}
+                style={{ fontWeight: 700 }}
+                className="text-dark"
+              >
+
+                {list.username}
+              </Link>
+            ))
+          }
+          <div className='col s3'>
+            <div className="row">
+              <div className="">
+                <div className="card blue-grey darken-1">
+                  <div className="card-content white-text">
+                    <span className="card-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

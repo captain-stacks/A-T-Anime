@@ -3,7 +3,7 @@ import React from "react";
 export default function AnimeCard(props) {
 
     return (
-        <li className="btn-anime col s12 m6 l4 ">
+        <li className="btn-anime col s12 m6 l3 ">
             <div className="card">
                 <div className="card-image favAnimeImg">
                     <a href={props.image} className="favAnimeContainer">
