@@ -53,12 +53,31 @@ const resolvers = {
 
       return userData;
     },
+
     userSearchBar: async (parent, { userName }) => {
-      const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
-        if (err) console.log(err);
-        console.log(userName);
-        });
+      const user = await User.find({ 
+        username: { 
+          $regex: `^${userName}`, 
+          $options: "i" } }, 
+          function(err, docs) {
+            if (err) console.log(err);
+            console.log(userName);
+          }
+      );
       return user;
+    },
+
+    getAnimeBySearch: async (parent, { title }) => {
+      const anime = await Anime.find({ $or: [ { 
+        romajiTitle: { 
+          $regex: `^${title}`, 
+          $options: "i" 
+        }}, { 
+        englishTitle: { 
+          $regex: `^${title}`, 
+          $options: "i" 
+        }}]});
+      return anime;
     },
     // get all users
     users: async () => {
