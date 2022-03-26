@@ -1,4 +1,6 @@
 import React from "react";
+import { ReactSVG } from 'react-svg';
+import AddToMyList from "../AddToMyList/AddToMyList";
 
 export default function AnimeCard(props) {
 
@@ -14,6 +16,9 @@ export default function AnimeCard(props) {
                         </h3>
                         <img className="favAnimeImg anime-card-height" alt="" src={props.image} />
                     </a>
+                </div>
+                <div className="overlay">
+                    <AddToMyList />
                 </div>
             </div>
         </li>

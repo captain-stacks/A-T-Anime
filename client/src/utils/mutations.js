@@ -53,6 +53,28 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+export const ADD_ANIME = gql`
+mutation addAnime($animeId: ID!) {
+  addAnime(animeId: $animeId) {
+    userId
+    anime {
+      _id
+      }
+    }
+  }
+`;
+
+// TODO: add to resolvers & Typedef
+export const REMOVE_ANIME = gql`
+  mutation removeAnime($animeId: ID!) {
+  removeAnime(animeId: $animeId) {
+    userId
+    anime {
+      _id
+      }
+    }
+  }
+`;
 
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
