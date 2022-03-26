@@ -282,6 +282,10 @@ nav a:hover {
   position: relative;
 }
 
+.setVH{
+  height: 45vh;
+}
+
 .favAnimeImg{
   border-radius: 5%;
   height: 60vh;

@@ -57,6 +57,14 @@ const resolvers = {
       const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
         if (err) console.log(err);
         console.log(userName);
+        })
+        .populate({
+          path: 'myAnime',
+          model: 'MyAnime',
+          populate: {
+            path: 'anime',
+            model: 'Anime'
+          }
         });
       return user;
     },
