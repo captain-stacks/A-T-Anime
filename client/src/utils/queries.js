@@ -262,3 +262,28 @@ query userSearchBar($userName: String!) {
   }
 }
 `;
+
+export const Query_Anime_By_Search = gql `
+  query getAnimeBySearch($page: Int!, $title: String!) {
+    getAnimeBySearch(page: $page, title: $title) {
+      _id
+      englishTitle
+      romajiTitle
+      nativeTitle
+      type
+      format
+      status
+      description
+      startDate
+      endDate
+      season
+      episodes
+      duration
+      source
+      coverImageLarge
+      coverImageMedium
+      bannerImage
+      genres
+    }
+  }
+`

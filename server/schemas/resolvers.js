@@ -53,6 +53,7 @@ const resolvers = {
 
       return userData;
     },
+
     userSearchBar: async (parent, { userName }) => {
       const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
         if (err) console.log(err);
@@ -67,6 +68,21 @@ const resolvers = {
           }
         });
       return user;
+    },
+
+    getAnimeBySearch: async (parent, { page, title }) => {
+      const anime = await Anime.find({ $or: [ { 
+        romajiTitle: { 
+          $regex: `^${title}`, 
+          $options: "i" 
+        }}, { 
+        englishTitle: { 
+          $regex: `^${title}`, 
+          $options: "i" 
+        }}]})
+        .limit(51)
+        .skip((page * 51) - 51);
+      return anime;
     },
     // get all users
     users: async () => {

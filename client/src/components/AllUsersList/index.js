@@ -6,13 +6,11 @@ const AllUsersList = ({ users, title }) => {
         return <h3>No users Yet</h3>;
     }
 
-    console.log(users[0].myAnime[0])
-
     return (
         <div className="row">
             {users &&
                 users.map(user => (
-                    <div className="col s12 m3">
+                    <div className="col s12 m3" key={user._id}>
                         <div className="card">
                             <div className="card-image favAnimeImg">
                                 <Link
