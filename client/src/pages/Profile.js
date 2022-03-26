@@ -62,27 +62,30 @@ const Profile = () => {
               ))
             }
           </ul>
-          {
-            user.following.map(list => (
-              <Link
-                key={list._id}
-                to={`/profile/${list.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-dark"
-              >
-
-                {list.username}
-              </Link>
-            ))
-          }
           <div className='col s3'>
             <div className="row">
               <div className="">
                 <div className="card blue-grey darken-1">
                   <div className="card-content white-text">
-                    <span className="card-title">Card Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                      I am convenient because I require little markup to use effectively.</p>
+                    <span className="card-title"> {userParam ? `${user.username} is` : 'Your'} following</span>
+                    {!user.following[0] ? "[nobody]" : ""}
+                    {
+                      user.following.map(list => (
+                        <div>
+                          <Link
+                            key={list._id}
+                            to={`/profile/${list.username}`}
+                            style={{ fontWeight: 700, display: 'block' }}
+                            className="text-dark"
+                          >
+                              <div className='col'>
+                                {list.username}
+                              </div>
+                          </Link>
+                          <br />
+                        </div>
+                      ))
+                    }
                   </div>
                 </div>
               </div>

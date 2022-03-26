@@ -851,9 +851,9 @@ nav a:hover {
   color: var(--light);
 }
 
-.text-dark {
+/* .text-dark {
   color: var(--dark);
-}
+} */
 
 .text-error {
   color: var(--error);
