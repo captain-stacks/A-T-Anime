@@ -53,7 +53,7 @@ const typeDefs = gql`
     animebyId(animeId: ID!): Anime
     allAnime(page: Int): [Anime]
     userSearchBar(userName: String!): [User]
-    getAnimeBySearch(title: String!): [Anime]
+    getAnimeBySearch(page: Int!, title: String!): [Anime]
   }
 
   type Mutation {

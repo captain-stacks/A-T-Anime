@@ -58,16 +58,17 @@ const resolvers = {
       const user = await User.find({ 
         username: { 
           $regex: `^${userName}`, 
-          $options: "i" } }, 
-          function(err, docs) {
-            if (err) console.log(err);
-            console.log(userName);
-          }
+          $options: "i" } 
+        }, 
+        function(err, docs) {
+          if (err) console.log(err);
+          console.log(userName);
+        }
       );
       return user;
     },
 
-    getAnimeBySearch: async (parent, { title }) => {
+    getAnimeBySearch: async (parent, { page, title }) => {
       const anime = await Anime.find({ $or: [ { 
         romajiTitle: { 
           $regex: `^${title}`, 
@@ -76,7 +77,9 @@ const resolvers = {
         englishTitle: { 
           $regex: `^${title}`, 
           $options: "i" 
-        }}]});
+        }}]})
+        .limit(51)
+        .skip((page * 51) - 51);
       return anime;
     },
     // get all users
