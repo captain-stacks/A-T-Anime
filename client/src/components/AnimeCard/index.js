@@ -8,7 +8,7 @@ export default function AnimeCard(props) {
         <li className="btn-anime col s12 m6 l3 ">
             <div className="card">
                 <div className="card-image favAnimeImg">
-                    <img className="responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
+                    <img className="card medium responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
                     <a href={props.image} className="favAnimeContainer">
                         <h3 className="">
                             <span className="center-align">
