@@ -1357,12 +1357,34 @@ input:not([type]):focus:not([readonly]){
   line-height: 45px !important;
 }
 
-
-
 .top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    z-index: 1000;
+}
+
+.project-label {
+    position:absolute;
+    border:none;
+    padding: 5px;
+    top: 8px;
+    left: 16px;
+    z-index: 3;
+}
+.project-label2 {
+    position:absolute;
+    border:none;
+    padding: 5px;
+    top: 8px;
+    right: 16px;
+    z-index: 3;
+}
+
+.top-right {
   position: absolute;
   top: 8px;
-  left: 16px;
+  right: 16px;
   z-index: 1000;
 }
 
@@ -1447,3 +1469,9 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
 .btn:hover, .btn-large:hover, .btn-small:hover {
   background-color: var(--error) !important;
 }
+
+.material-icons {
+  align-items: center !important;
+}
+
+
