@@ -57,7 +57,6 @@ const AllAnime = () => {
                         <input id="search" placeholder="Type to search user..." value={input} onChange={e => setInput(e.target.value)}></input>
                         <label htmlFor="search">Find a Anime: </label>
                     </div>
-                    <button type="submit"></button>
                 </div>
             </form>
             <div className="container">

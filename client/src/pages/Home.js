@@ -50,7 +50,6 @@ const Home = () => {
               <input id="search" placeholder="Type Find a User..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
               <label htmlFor="search">Find a User: </label>
             </div>
-            <button type="submit"></button>
           </div>
         </form>
         <div className="container">
