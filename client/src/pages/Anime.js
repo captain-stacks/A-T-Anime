@@ -61,6 +61,7 @@ const AllAnime = () => {
                             title={anime.romajiTitle}
                             description={anime.description}
                             image={anime.coverImageLarge}
+                            animeId={anime._id}
                         />
                     ))
                 }

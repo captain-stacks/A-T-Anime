@@ -77,6 +77,7 @@ const Profile = () => {
                   title={animeList.anime.romajiTitle}
                   description={animeList.anime.description}
                   image={animeList.anime.coverImageLarge}
+                  animeId={animeList.anime._id}
                 />
               ))
             }
