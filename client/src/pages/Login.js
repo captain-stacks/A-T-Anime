@@ -48,7 +48,7 @@ const Login = (props) => {
           <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input"
+                className="form-input bkg-input"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -57,7 +57,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input bkg-input"
                 placeholder="Password"
                 name="password"
                 type="password"

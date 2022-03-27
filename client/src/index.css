@@ -1,11 +1,11 @@
 :root {
   --background-prim: #35383E;
-  --background-sec: 202225;
+  --background-sec: #202225;
   --text-bkgrnd: #ffffff;
   --nav-header: #660ba2;
-  --special: #420868;
+  --special: #F86624;
   --nav: #6c7575;
-  --error: rgb(228, 46, 1);
+  --error: #EA3546;
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
   --spacing-two: calc(1rem * 0.5);
@@ -178,6 +178,7 @@ nav a:hover {
 .bkg-color{
   background-color: var(--special);
 }
+
 .dot {
   height: 100px;
   width: 100px;
@@ -1361,4 +1362,12 @@ nav a:hover {
   top: 8px;
   right: 16px;
   z-index: 3;
+}
+
+.btn {
+  background-color: var(--special);
+}
+
+.bkg-input{
+  background-color: var(--text-bkgrnd);
 }
