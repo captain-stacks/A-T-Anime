@@ -73,16 +73,11 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
         { meFollowing.map(follow => {
-          
-          if (follow._id == user._id || !userParam) {
-            
-            if (Auth.loggedIn()) {
-              
+            if (follow._id == user._id || !userParam) {
               isfollow = true;
             }
-          }
         })}
-        
+        {(!Auth.loggedIn()) ? (isfollow = true) : ('')}
         {(!isfollow) ? (<button onClick={handleClick}>Follow</button>) : ('')}
         {isfollow = false}
       </div>
@@ -99,6 +94,7 @@ const Profile = () => {
                       favorite = true;
                     }
                   })}
+                  {(!Auth.loggedIn()) ? (favorite = true) : ('')}
                   <AnimeCard
                     title={animeList.anime.romajiTitle}
                     description={animeList.anime.description}
