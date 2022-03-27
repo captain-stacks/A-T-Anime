@@ -190,6 +190,26 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    // Take removes anime from users list
+    removeAnime: async (parent, args, context) => {
+      if (context.user) {
+        
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { myAnime: [args.animeId] } },
+          { new: true }
+        );
+
+        const removedAnime = await MyAnime.findOneAndDelete({ userId: context.user._id, anime: [args.animeId] })
+        .populate('anime');
+        console.log(removedAnime);
+
+        return removedAnime;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     createAnime: async (parent, args) => {
       const anime = await Anime.create(args);
 
