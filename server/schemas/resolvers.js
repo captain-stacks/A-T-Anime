@@ -167,7 +167,14 @@ const resolvers = {
     // Takes anime and puts it in users list
     addAnime: async (parent, args, context) => {
       if (context.user) {
-        let myAnime = await MyAnime.create({ userId: context.user._id, score: args.score, anime: [args.animeId] });
+
+        let myAnime = await MyAnime.find({$and: [ {userId: context.user._id}, {anime: [args.animeId]}]});
+
+        if (myAnime.length) {
+          return;
+        }
+
+        myAnime = await MyAnime.create({ userId: context.user._id, score: args.score, anime: [args.animeId] });
         myAnime = await myAnime.populate('anime').execPopulate();
 
         const updatedUser = await User.findOneAndUpdate(
@@ -175,7 +182,7 @@ const resolvers = {
           { $push: { myAnime: myAnime._id } },
           { new: true }
         );
-        console.log(myAnime);
+        //console.log(myAnime);
 
         return myAnime;
       }
