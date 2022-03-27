@@ -17,7 +17,7 @@ export default function AnimeCard(props) {
                                 {props.title}
                             </span>
                         </h3>
-                        <img className="favAnimeImg anime-card-height" alt="" src={props.image} />
+                        <img className="responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
                     </a>
                 </div>
             </div>
