@@ -311,9 +311,9 @@ nav a:hover {
   width: calc(100% - 5px - 5px);
 }
 
-.favAnimeContainer{
+/* .favAnimeContainer{ */
   /* position: relative; */
-}
+/* } */
 
 .h3FavAnimesTitle{
   background-color: rgba(0, 0, 0, .8);
