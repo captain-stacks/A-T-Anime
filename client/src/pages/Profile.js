@@ -26,6 +26,9 @@ const Profile = () => {
     ],
   });
 
+  const meRes = useQuery(QUERY_ME);
+  const meAnime = meRes.data?.me?.myAnime || [];
+
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />;
@@ -56,7 +59,7 @@ const Profile = () => {
     }
   };
 
-
+  let favorite = false;
 
   return (
     <div>
@@ -72,13 +75,23 @@ const Profile = () => {
           <ul className='col s9'>
             {
               user.myAnime.map(animeList => (
-                <AnimeCard
-                  key={animeList.anime._id}
-                  title={animeList.anime.romajiTitle}
-                  description={animeList.anime.description}
-                  image={animeList.anime.coverImageLarge}
-                  animeId={animeList.anime._id}
-                />
+                <div key={animeList.anime._id}>
+
+                  {meAnime.map(meanime => {
+                    if (meanime.anime._id == animeList.anime._id) {
+                      favorite = true;
+                    }
+                  })}
+                  <AnimeCard
+                    
+                    title={animeList.anime.romajiTitle}
+                    description={animeList.anime.description}
+                    image={animeList.anime.coverImageLarge}
+                    animeId={animeList.anime._id}
+                    favorite={favorite}
+                  />
+                  {favorite = false}
+                </div>
               ))
             }
           </ul>
