@@ -1369,5 +1369,9 @@ nav a:hover {
 }
 
 .bkg-input{
-  background-color: var(--text-bkgrnd);
+  background-color: var(--background-prim);
+}
+
+.bkg-color2 {
+  border-bottom: 3px solid var(--special);
 }

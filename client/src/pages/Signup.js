@@ -38,7 +38,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="">
+    <div className="col s12 m6 l6">
       <div className="">
         <div className="card">
           <h4 className="card-header">Register</h4>
@@ -49,7 +49,7 @@ const Signup = () => {
                 placeholder="User Name"
                 name="username"
                 type="username"
-                id="username"
+                id="register-username"
                 value={formState.username}
                 onChange={handleChange}
               />
@@ -58,7 +58,7 @@ const Signup = () => {
                 placeholder="Email"
                 name="email"
                 type="email"
-                id="email"
+                id="register-email"
                 value={formState.email}
                 onChange={handleChange}
               />
@@ -67,7 +67,7 @@ const Signup = () => {
                 placeholder="Password"
                 name="password"
                 type="password"
-                id="password"
+                id="register-password"
                 value={formState.password}
                 onChange={handleChange}
               />
