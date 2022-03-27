@@ -157,7 +157,7 @@ nav a:hover {
 .card {
   margin: 0 0 20px 0;
   border-radius: var(--border-radius);
-  background-color: var(--light);
+  background-color: #202225;
   height: 80%;
   /* color: var(--dark); */
 }
