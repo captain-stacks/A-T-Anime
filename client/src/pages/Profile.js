@@ -13,6 +13,8 @@ import Auth from '../utils/auth';
 const Profile = () => {
   const { username: userParam } = useParams();
 
+  console.log(userParam);
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { userName: userParam },
   });
@@ -106,6 +108,7 @@ const Profile = () => {
                     image={animeList.anime.coverImageLarge}
                     animeId={animeList.anime._id}
                     favorite={favorite}
+                    userParam={userParam}
                   />
                   {favorite = false}
                 </div>

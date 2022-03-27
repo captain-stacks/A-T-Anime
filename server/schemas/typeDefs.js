@@ -61,6 +61,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     follow(followingId: ID!): User
     addAnime(animeId: ID!): MyAnime
+    removeAnime(animeId: ID!): MyAnime
     createAnime(
       englishTitle: String,
       romajiTitle: String,

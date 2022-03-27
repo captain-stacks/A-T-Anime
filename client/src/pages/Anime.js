@@ -78,6 +78,7 @@ const AllAnime = () => {
                                     image={anime.coverImageLarge}
                                     animeId={anime._id}
                                     favorite={favorite}
+                                    noRemove={true}
                                 />
                                 {favorite = false}
                             </div>
