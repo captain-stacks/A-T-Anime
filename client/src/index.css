@@ -1406,6 +1406,7 @@ textarea.materialize-textarea, .form-input,.form-input-cause-i-said-so  {
 
 
 .btn:focus, .btn-large:focus, 
-.btn-small:focus, .btn-floating:focus {
-  background-color: var(--error);
+.btn-small:focus, .btn-floating:focus,
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: var(--error) !important;
 }
