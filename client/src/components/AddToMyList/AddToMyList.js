@@ -28,7 +28,6 @@ const AddToMyList = ({animeId, favorite}) => {
         }
     };
 
-    console.log(favorite);
 
     return(
         <>

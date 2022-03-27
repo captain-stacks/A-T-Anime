@@ -27,7 +27,10 @@ const Profile = () => {
   });
 
   const meRes = useQuery(QUERY_ME);
+  const meFollowing = meRes.data?.me?.following || [];
   const meAnime = meRes.data?.me?.myAnime || [];
+
+  console.log(meFollowing);
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -60,6 +63,7 @@ const Profile = () => {
   };
 
   let favorite = false;
+  let isfollow = false;
 
   return (
     <div>
@@ -67,7 +71,21 @@ const Profile = () => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
-        { Auth.loggedIn() ? (userParam ? <button onClick={handleClick}>Follow</button> : ``) : ""}
+        { meFollowing.map(follow => {
+          console.log(follow._id, user._id, 'hi');
+          if (follow._id == user._id) {
+            console.log('hi');
+            if (Auth.loggedIn()) {
+              console.log('a');
+              if (userParam) {
+                console.log('s');
+                isfollow = true;
+              }
+            }
+          }
+        })}
+        {(!isfollow) ? (<button onClick={handleClick}>Follow</button>) : ('')}
+        {isfollow = false}
       </div>
 
       <div className="justify-space-between mb-3">
@@ -83,7 +101,6 @@ const Profile = () => {
                     }
                   })}
                   <AnimeCard
-                    
                     title={animeList.anime.romajiTitle}
                     description={animeList.anime.description}
                     image={animeList.anime.coverImageLarge}
