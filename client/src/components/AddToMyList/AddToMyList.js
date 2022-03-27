@@ -4,10 +4,12 @@ import { useQuery, useMutation  } from '@apollo/client';
 import { ADD_ANIME } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import {ReactComponent as Favoritesbtn} from './favorite-bookmark-svgrepo-com.svg';
+import './addtomylist.css';
 
 
 
 const AddToMyList = ({animeId}) => {
+
 
     const [addAnime] = useMutation(ADD_ANIME, {
         refetchQueries: [
@@ -16,6 +18,7 @@ const AddToMyList = ({animeId}) => {
         ],
     });
     const handleClick = async() =>{
+        
         try{
             await addAnime ({
                 variables: {animeId: animeId}
@@ -27,7 +30,8 @@ const AddToMyList = ({animeId}) => {
 
     return(
         <>
-            <button className="btn bottom-right" onClick={handleClick}><Favoritesbtn /></button>
+        <a className="btn-floating waves-effect waves-light light-blue accent-1 top-right" onClick={handleClick}><i class="material-icons">bookmark_border</i></a>
+            
         </>
     )
 };
