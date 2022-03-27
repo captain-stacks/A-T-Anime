@@ -8,7 +8,7 @@ import './addtomylist.css';
 
 
 
-const AddToMyList = ({animeId}) => {
+const AddToMyList = ({animeId, favorite}) => {
 
 
     const [addAnime] = useMutation(ADD_ANIME, {
@@ -28,9 +28,11 @@ const AddToMyList = ({animeId}) => {
         }
     };
 
+    console.log(favorite);
+
     return(
         <>
-        <a className="btn-floating waves-effect waves-light light-blue accent-1 top-right" onClick={handleClick}><i class="material-icons">bookmark_border</i></a>
+            {(favorite) ? ('') : (<a className="btn-floating waves-effect waves-light light-blue accent-1 top-right" onClick={handleClick}><i className="material-icons">bookmark_border</i></a>)}
             
         </>
     )

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import AnimeCard from "../components/AnimeCard"
+import AnimeCard from "../components/AnimeCard";
+import Auth from '../utils/auth';
 
 import { useQuery } from '@apollo/client';
-import { Query_Anime_By_Search } from '../utils/queries';
+import { Query_Anime_By_Search, QUERY_ME } from '../utils/queries';
 
 const AllAnime = () => {
-
     const [ page, setPage ] = useState(1);
     const [ input, setInput ] = useState('');
     const [ searchedTitle, setSearchedTitle ] = useState('');
@@ -18,6 +18,11 @@ const AllAnime = () => {
     });
 
     const animes = data?.getAnimeBySearch || [];
+
+    const meRes = useQuery(QUERY_ME);
+    const myAnime = meRes.data?.me?.myAnime || [];
+    
+
 
     const next = () => {
         setPage(page + 1);
@@ -41,6 +46,8 @@ const AllAnime = () => {
         handleSearch(input);
     }
 
+    let favorite = false;
+
 
     return (
         <div className="">
@@ -56,13 +63,26 @@ const AllAnime = () => {
             <ul className='row'>
                 {
                     animes.map(anime => (
-                        <AnimeCard
-                            key={anime._id}
-                            title={anime.romajiTitle}
-                            description={anime.description}
-                            image={anime.coverImageLarge}
-                            animeId={anime._id}
-                        />
+                        <div key={anime._id}>
+
+                            {myAnime.map(myanime => {
+                                if (myanime.anime._id == anime._id) {
+                                    favorite = true;
+                                }
+                            })}
+
+                            
+
+                            <AnimeCard
+                                
+                                title={anime.romajiTitle}
+                                description={anime.description}
+                                image={anime.coverImageLarge}
+                                animeId={anime._id}
+                                favorite={favorite}
+                            />
+                            {favorite = false}
+                        </div>
                     ))
                 }
             </ul>

@@ -3,17 +3,21 @@ import AllUsersList from '../components/AllUsersList';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { Query_User_Search } from '../utils/queries';
+import { Query_User_Search, QUERY_ME } from '../utils/queries';
 
 const Home = () => {
   const [page, setPage] = useState(1);
 
   const [searchedUser, setSearchedUser] = useState('');
   const [searchInput, setSearchInput] = useState('');
-  const { loading, data } = useQuery(Query_User_Search, { variables: { page: page, userName: searchedUser } });
-  const users = data?.userSearchBar || [];
-  console.log(users);
+
+  const userRes = useQuery(Query_User_Search, { variables: { page: page, userName: searchedUser } });
+  const users = userRes.data?.userSearchBar || [];
+
   const loggedIn = Auth.loggedIn();
+
+  
+
 
   const next = () => {
     setPage(page + 1);
@@ -50,7 +54,7 @@ const Home = () => {
           </div>
         </form>
         <div className={`col-12 mb-3 ${loggedIn}`}>
-          {loading ? (
+          {userRes.loading ? (
             <div>Loading...</div>
           ) : (
             <div>

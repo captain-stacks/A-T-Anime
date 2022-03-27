@@ -8,7 +8,7 @@ export default function AnimeCard(props) {
         <li className="btn-anime col s12 m6 l3 ">
             <div className="card">
                 <div className="collapsible">
-                    <AddToMyList animeId={props.animeId} />
+                    <AddToMyList animeId={props.animeId} favorite={props.favorite} />
                 </div>
                 <div className="card-image favAnimeImg">
                     <a href={props.image} className="favAnimeContainer">
