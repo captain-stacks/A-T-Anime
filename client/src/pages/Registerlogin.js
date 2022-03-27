@@ -32,9 +32,9 @@ const Registersignup = () => {
 	}
 
 	return (
-		<div className='row card-panel teal lighten-2'>
+		<div className='row card-panel bkg-input'>
 
-			<section className='col s12 m12 l6 lineBreak'>
+			<section className='col s12 m12 l6'>
 				<header className=''>
 					<h2 className=''>
 						Register

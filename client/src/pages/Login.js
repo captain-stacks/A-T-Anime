@@ -41,14 +41,13 @@ const Login = (props) => {
   };
 
   return (
-    <div className="col s12 m12 l6">
-      <div className="">
-        <div className="card">
+    <div className='col s12 m12 l6 '>
+        <div className="card bkg-color2">
           <h4 className="card-header">Log In</h4>
           <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input bkg-input"
+                className="form-input bkg-input form-input-cause-i-said-so"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -57,7 +56,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input bkg-input"
+                className="form-input bkg-input form-input-cause-i-said-so"
                 placeholder="Password"
                 name="password"
                 type="password"
@@ -76,7 +75,6 @@ const Login = (props) => {
             {error && <div>Login failed</div>}
           </div>
         </div>
-      </div>
     </div>
   );
 };
