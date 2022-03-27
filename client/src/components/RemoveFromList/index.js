@@ -29,7 +29,7 @@ const RemoveFromList = ({animeId}) => {
 
     return(
         <>
-            <a className="btn-floating red darken-4 waves-effect waves-light top-right" onClick={handleClick}><i className="material-icons">delete_forever</i></a>
+            <a className="btn-floating waves-effect waves-light light-blue accent-1 top-left mylist" onClick={handleClick}><i className="material-icons">delete_forever</i></a>
         </>
     )
 };

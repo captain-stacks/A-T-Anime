@@ -34,7 +34,7 @@ const AddToMyList = ({animeId, favorite}) => {
 
     return(
         <>
-            {(favorite) ? ('') : (<a className="btn-floating waves-effect waves-light light-blue accent-1 top-right" onClick={handleClick}><i className="material-icons">bookmark_border</i></a>)}
+            {(favorite) ? ('') : (<a className="btn-floating waves-effect waves-light light-blue accent-1 top-right mylist" onClick={handleClick}><i className="material-icons">bookmark_border</i></a>)}
             
         </>
     )
