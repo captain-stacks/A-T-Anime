@@ -106,6 +106,7 @@ const Profile = () => {
                     image={animeList.anime.coverImageLarge}
                     animeId={animeList.anime._id}
                     favorite={favorite}
+                    userParam={userParam}
                   />
                   {favorite = false}
                 </div>

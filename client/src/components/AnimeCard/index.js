@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactSVG } from 'react-svg';
 import AddToMyList from "../AddToMyList/AddToMyList";
+import RemoveFromList from "../RemoveFromList";
 
 export default function AnimeCard(props) {
 
@@ -9,6 +10,7 @@ export default function AnimeCard(props) {
             <div className="card">
                 <div className="collapsible">
                     <AddToMyList animeId={props.animeId} favorite={props.favorite} />
+                    {(!props.userParam)?((!props.noRemove)?(<RemoveFromList animeId={props.animeId}/>):('')): ('')}
                 </div>
                 <div className="card-image favAnimeImg">
                     <a href={props.image} className="favAnimeContainer">
