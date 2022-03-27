@@ -48,7 +48,7 @@ const Login = (props) => {
           <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input"
+                className="form-input bkg-input"
                 placeholder="Email"
                 name="email"
                 type="email"
@@ -57,7 +57,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input bkg-input"
                 placeholder="Password"
                 name="password"
                 type="password"
@@ -65,8 +65,8 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Log In
+              <button className="btn waves-effect waves-light" type="submit">
+                Log In <i class="material-icons right">send</i>
               </button>
             </form>
             <p className='pLogin-Signup'>
