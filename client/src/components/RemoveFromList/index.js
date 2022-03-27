@@ -3,10 +3,10 @@ import { ReactSVG } from 'react-svg';
 import { useQuery, useMutation  } from '@apollo/client';
 import { REMOVE_ANIME } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import $ from "jquery";
 
 
 const RemoveFromList = ({animeId}) => {
-    console.log(animeId);
     
     const [removeAnime] = useMutation(REMOVE_ANIME, {
         refetchQueries: [
@@ -14,7 +14,10 @@ const RemoveFromList = ({animeId}) => {
             'Me'
         ],
     });
-    const handleClick = async() =>{
+    const handleClick = async event => {
+
+        $(event.target).css("display", "none");
+
         try{
             await removeAnime ({
                 variables: {animeId: animeId}
@@ -26,7 +29,7 @@ const RemoveFromList = ({animeId}) => {
 
     return(
         <>
-             <a className="btn-floating red darken-4 top-right" onClick={handleClick}><i className="material-icons">delete_forever</i></a>
+            <a className="btn-floating red darken-4 waves-effect waves-light top-right" onClick={handleClick}><i className="material-icons">delete_forever</i></a>
         </>
     )
 };

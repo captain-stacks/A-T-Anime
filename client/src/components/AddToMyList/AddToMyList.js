@@ -5,6 +5,7 @@ import { ADD_ANIME } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
 import {ReactComponent as Favoritesbtn} from './favorite-bookmark-svgrepo-com.svg';
 import './addtomylist.css';
+import $ from "jquery";
 
 
 
@@ -17,7 +18,9 @@ const AddToMyList = ({animeId, favorite}) => {
             'Me'
         ],
     });
-    const handleClick = async() =>{
+    const handleClick = async event =>{
+
+        $(event.target).css("display", "none");
         
         try{
             await addAnime ({

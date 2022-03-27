@@ -62,6 +62,14 @@ const Profile = () => {
       console.error(e);
     }
   };
+  
+  const favoriteCheck = (animeList) => {
+    meAnime.map(meanime => {
+      if (meanime.anime._id == animeList.anime._id) {
+        favorite = true;
+      }
+    });
+}
 
   let favorite = false;
   let isfollow = false;
@@ -89,11 +97,7 @@ const Profile = () => {
               user.myAnime.map(animeList => (
                 <div key={animeList.anime._id}>
 
-                  {meAnime.map(meanime => {
-                    if (meanime.anime._id == animeList.anime._id) {
-                      favorite = true;
-                    }
-                  })}
+                  {favoriteCheck(animeList)}
                   {(!Auth.loggedIn()) ? (favorite = true) : ('')}
                   <AnimeCard
                     title={animeList.anime.romajiTitle}
@@ -117,9 +121,8 @@ const Profile = () => {
                     {!user.following[0] ? "[nobody]" : ""}
                     {
                       user.following.map(list => (
-                        <div>
+                        <div key={list._id}>
                           <Link
-                            key={list._id}
                             to={`/profile/${list.username}`}
                             style={{ fontWeight: 700, display: 'block' }}
                             className="text-dark"

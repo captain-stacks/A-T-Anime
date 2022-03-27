@@ -38,36 +38,36 @@ const Signup = () => {
   };
 
   return (
-    <div className="">
+    <div className=''>
       <div className="">
-        <div className="card">
+        <div className="card bkg-color2">
           <h4 className="card-header">Register</h4>
           <div className="card-body login-signup">
             <form onSubmit={handleFormSubmit}>
               <input
-                className="form-input"
+                className="form-input form-input-cause-i-said-so"
                 placeholder="User Name"
                 name="username"
                 type="username"
-                id="username"
+                id="register-username"
                 value={formState.username}
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input form-input-cause-i-said-so"
                 placeholder="Email"
                 name="email"
                 type="email"
-                id="email"
+                id="register-email"
                 value={formState.email}
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input form-input-cause-i-said-so"
                 placeholder="Password"
                 name="password"
                 type="password"
-                id="password"
+                id="register-password"
                 value={formState.password}
                 onChange={handleChange}
               />
