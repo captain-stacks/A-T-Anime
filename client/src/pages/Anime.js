@@ -60,32 +60,31 @@ const AllAnime = () => {
                     <button type="submit"></button>
                 </div>
             </form>
-            <ul className='row'>
-                {
-                    animes.map(anime => (
-                        <div key={anime._id}>
-
-                            {myAnime.map(myanime => {
-                                if (myanime.anime._id == anime._id) {
-                                    favorite = true;
-                                }
-                            })}
-
-                            
-
-                            <AnimeCard
-                                
-                                title={anime.romajiTitle}
-                                description={anime.description}
-                                image={anime.coverImageLarge}
-                                animeId={anime._id}
-                                favorite={favorite}
-                            />
-                            {favorite = false}
-                        </div>
-                    ))
-                }
-            </ul>
+            <div className="container">
+                <ul className='row'>
+                    {
+                        animes.map(anime => (
+                            <div key={anime._id}>
+                                {myAnime.map(myanime => {
+                                    if (myanime.anime._id == anime._id) {
+                                        favorite = true;
+                                    }
+                                })}
+                
+                                <AnimeCard
+                
+                                    title={anime.romajiTitle}
+                                    description={anime.description}
+                                    image={anime.coverImageLarge}
+                                    animeId={anime._id}
+                                    favorite={favorite}
+                                />
+                                {favorite = false}
+                            </div>
+                        ))
+                    }
+                </ul>
+            </div>
             <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
         </div>
     );

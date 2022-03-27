@@ -53,17 +53,19 @@ const Home = () => {
             <button type="submit"></button>
           </div>
         </form>
-        <div className={`col-12 mb-3 ${loggedIn}`}>
-          {userRes.loading ? (
-            <div>Loading...</div>
-          ) : (
-            <div>
-              <AllUsersList
-                title="Top Popular Anime Lists"
-                users={users}
-              />
-            </div>
-          )}
+        <div className="container">
+          <div className={`col-12 mb-3 ${loggedIn}`}>
+            {userRes.loading ? (
+              <div>Loading...</div>
+            ) : (
+              <div>
+                <AllUsersList
+                  title="Top Popular Anime Lists"
+                  users={users}
+                />
+              </div>
+            )}
+          </div>
         </div>
         <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
       </div>
