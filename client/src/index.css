@@ -118,7 +118,7 @@ nav a:hover {
   /* border-right: 5px solid black; */
 }
 
-.btn,
+/* .btn, */
 .pill {
   height: 8vh;
   font-size: 1rem;
@@ -138,20 +138,20 @@ nav a:hover {
   font-size: 12px;
 }
 
-.btn:hover,
+/* .btn:hover, */
 .pill:hover {
   color: var(--secondary);
   background-color: var(--dark);
 }
 
-.btn:hover a,
+/* .btn:hover a, */
 .pill:hover a {
   color: var(--secondary);
 }
 
-.btn-inline {
-  display: inline;
-}
+/* .btn-inline { */
+  /* display: inline;
+} */
 
 /* CARDS */
 .card {

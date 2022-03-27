@@ -65,8 +65,8 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
-                Log In
+              <button className="btn waves-effect waves-light" type="submit">
+                Log In <i class="material-icons right">send</i>
               </button>
             </form>
             <p className='pLogin-Signup'>
