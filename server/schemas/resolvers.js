@@ -121,6 +121,13 @@ const resolvers = {
       .skip((page * 51) - 51);
 
       return anime;
+    },
+
+    isFollow: async (parent, { followingId }, context) => {
+      console.log(followingId, context.user._id);
+      const following = await User.findOne({$and: [ {_id: context.user._id}, {following: followingId}]});
+      console.log(following);
+      return following;
     }
   },
   Mutation: {

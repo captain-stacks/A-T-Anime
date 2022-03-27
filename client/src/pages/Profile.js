@@ -73,17 +73,15 @@ const Profile = () => {
         </h2>
         { meFollowing.map(follow => {
           console.log(follow._id, user._id, 'hi');
-          if (follow._id == user._id) {
+          if (follow._id == user._id || !userParam) {
             console.log('hi');
             if (Auth.loggedIn()) {
-              console.log('a');
-              if (userParam) {
-                console.log('s');
-                isfollow = true;
-              }
+              console.log('s');
+              isfollow = true;
             }
           }
         })}
+        {console.log(isfollow)}
         {(!isfollow) ? (<button onClick={handleClick}>Follow</button>) : ('')}
         {isfollow = false}
       </div>
