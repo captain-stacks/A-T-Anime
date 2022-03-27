@@ -19,7 +19,12 @@ const Profile = () => {
 
   const user = data?.me || data?.userByUserName || {};
 
-  const [followUser] = useMutation(FOLLOW_USER);
+  const [followUser] = useMutation(FOLLOW_USER, {
+    refetchQueries: [
+      QUERY_ME, // DocumentNode object parsed with gql
+      'Me' // Query name
+    ],
+  });
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
