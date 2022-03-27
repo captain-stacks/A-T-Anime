@@ -115,9 +115,9 @@ nav a:hover {
   text-align: center;
 }
 
-.lineBreak{
+/* .lineBreak{
   /* border-right: 5px solid black; */
-}
+/* } */ 
 
 /* .btn, */
 .pill {
@@ -1373,5 +1373,39 @@ nav a:hover {
 }
 
 .bkg-color2 {
-  border-bottom: 3px solid var(--special);
+  border-top: 3px solid var(--special);
+}
+
+input:not([type]), input[type=text]:not(.browser-default), 
+input[type=password]:not(.browser-default), 
+input[type=email]:not(.browser-default), 
+input[type=url]:not(.browser-default), 
+input[type=time]:not(.browser-default), 
+input[type=date]:not(.browser-default), 
+input[type=datetime]:not(.browser-default),
+input[type=datetime-local]:not(.browser-default), 
+input[type=tel]:not(.browser-default), 
+input[type=number]:not(.browser-default), 
+input[type=search]:not(.browser-default), 
+textarea.materialize-textarea, .form-input,.form-input-cause-i-said-so  {
+  background-color: #e8f0fe !important;
+  border-bottom: 1px solid var(--text-bkgrnd) !important;
+  border-radius: var(--border-radius) !important;
+  outline: none;
+  height: 3rem;
+  box-sizing: border-box;
+  -webkit-transition: border .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-box-shadow .3s;
+  transition: box-shadow .3s, border .3s;
+  transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+  width: 100%;
+  padding: 0.75rem !important;
+  margin: 0.2rem 0 !important;
+  font-size: 1.2rem !important;
+}
+
+
+.btn:focus, .btn-large:focus, 
+.btn-small:focus, .btn-floating:focus {
+  background-color: var(--error);
 }
