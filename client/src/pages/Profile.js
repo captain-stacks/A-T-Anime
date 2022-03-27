@@ -13,7 +13,6 @@ import Auth from '../utils/auth';
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  console.log(userParam);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { userName: userParam },
@@ -32,7 +31,7 @@ const Profile = () => {
   const meFollowing = meRes.data?.me?.following || [];
   const meAnime = meRes.data?.me?.myAnime || [];
 
-  console.log(meFollowing);
+  
 
   // Navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -74,16 +73,16 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
         { meFollowing.map(follow => {
-          console.log(follow._id, user._id, 'hi');
+          
           if (follow._id == user._id || !userParam) {
-            console.log('hi');
+            
             if (Auth.loggedIn()) {
-              console.log('s');
+              
               isfollow = true;
             }
           }
         })}
-        {console.log(isfollow)}
+        
         {(!isfollow) ? (<button onClick={handleClick}>Follow</button>) : ('')}
         {isfollow = false}
       </div>
