@@ -20,3 +20,11 @@
     left: 16px;
     z-index: 3;
 }
+.project-label2 {
+    position:absolute;
+    border:none;
+    padding: 5px;
+    top: 8px;
+    right: 16px;
+    z-index: 3;
+}
