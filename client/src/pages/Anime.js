@@ -46,6 +46,14 @@ const AllAnime = () => {
         handleSearch(input);
     }
 
+    const favoriteCheck = (anime) => {
+        myAnime.map(myanime => {
+            if (myanime.anime._id == anime._id) {
+                favorite = true;
+            }    
+        })
+    }
+
     let favorite = false;
 
 
@@ -65,11 +73,7 @@ const AllAnime = () => {
                     {
                         animes.map(anime => (
                             <div key={anime._id}>
-                                {myAnime.map(myanime => {
-                                    if (myanime.anime._id == anime._id) {
-                                        favorite = true;
-                                    }
-                                })}
+                                {favoriteCheck(anime)}
                                 {(!Auth.loggedIn()) ? (favorite = true) : ('')}
 
                                 <AnimeCard

@@ -6,7 +6,6 @@ import { QUERY_ME } from '../../utils/queries';
 
 
 const RemoveFromList = ({animeId}) => {
-    console.log(animeId);
     
     const [removeAnime] = useMutation(REMOVE_ANIME, {
         refetchQueries: [
