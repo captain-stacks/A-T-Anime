@@ -28,9 +28,9 @@ const AllUsersList = ({ users, title }) => {
                                     {user.username}
                                 </h3>
                             </div>
-                            <div className="card-action center-align">
+                            {/* <div className="card-action center-align">
                                 <a href="#">Follow</a>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))

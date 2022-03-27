@@ -70,6 +70,7 @@ const AllAnime = () => {
                                         favorite = true;
                                     }
                                 })}
+                                {(!Auth.loggedIn()) ? (favorite = true) : ('')}
 
                                 <AnimeCard
 

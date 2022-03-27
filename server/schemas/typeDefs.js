@@ -54,6 +54,7 @@ const typeDefs = gql`
     allAnime(page: Int): [Anime]
     userSearchBar(page: Int!, userName: String!): [User]
     getAnimeBySearch(page: Int!, title: String!): [Anime]
+    isFollow(followingId: ID!): User
   }
 
   type Mutation {
