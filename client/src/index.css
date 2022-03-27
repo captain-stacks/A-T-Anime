@@ -1336,10 +1336,12 @@ nav a:hover {
   }
 }
 
-.btn-floating {
-  width: 46px;
-  height: 44px;
+.btn-floating i {
+  line-height: 45px !important;
 }
+
+
+
 .top-left {
   position: absolute;
   top: 8px;
@@ -1376,7 +1378,7 @@ nav a:hover {
   border-top: 3px solid var(--special);
 }
 
-input:not([type]), input[type=text]:not(.browser-default), 
+input[type=text]:not(.browser-default), 
 input[type=password]:not(.browser-default), 
 input[type=email]:not(.browser-default), 
 input[type=url]:not(.browser-default), 
@@ -1409,3 +1411,6 @@ textarea.materialize-textarea, .form-input,.form-input-cause-i-said-so  {
 .btn-small:focus, .btn-floating:focus {
   background-color: var(--error);
 }
+
+
+
