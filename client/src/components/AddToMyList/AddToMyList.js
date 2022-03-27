@@ -1,10 +1,7 @@
 import React from 'react';
-import { ReactSVG } from 'react-svg';
 import { useQuery, useMutation  } from '@apollo/client';
 import { ADD_ANIME } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
-import {ReactComponent as Favoritesbtn} from './favorite-bookmark-svgrepo-com.svg';
-import './addtomylist.css';
 import $ from "jquery";
 
 
@@ -34,7 +31,7 @@ const AddToMyList = ({animeId, favorite}) => {
 
     return(
         <>
-            {(favorite) ? ('') : (<a className="btn-floating waves-effect waves-light light-blue accent-1 top-right mylist" onClick={handleClick}><i className="material-icons">bookmark_border</i></a>)}
+            {(favorite) ? ('') : (<a className="btn-floating waves-effect waves-light light-blue accent-1 top-left mylist" onClick={handleClick}><i className="material-icons">bookmark_border</i></a>)}
             
         </>
     )
