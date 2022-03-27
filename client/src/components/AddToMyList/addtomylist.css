@@ -17,3 +17,15 @@
     font-size: 20px;
     text-align: center;
 }
+
+.btn {
+    flex:auto;
+    max-width: 10%;
+    max-height: 10%;
+}
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    z-index: -1;
+}

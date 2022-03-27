@@ -8,7 +8,7 @@ export default function AnimeCard(props) {
         <li className="btn-anime col s12 m6 l4 ">
             <div className="card">
                 <div className="overlay">
-                    <AddToMyList animeId={props.animeId}/>
+                    <AddToMyList animeId={props.animeId} />
                 </div>
                 <div className="card-image favAnimeImg">
                     <a href={props.image} className="favAnimeContainer">
