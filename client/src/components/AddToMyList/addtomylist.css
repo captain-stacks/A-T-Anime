@@ -11,3 +11,12 @@
     left: 16px;
     z-index: 1000;
 }
+
+.project-label {
+    position:absolute;
+    border:none;
+    padding: 5px;
+    top: 8px;
+    left: 16px;
+    z-index: 3;
+}

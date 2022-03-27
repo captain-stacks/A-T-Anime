@@ -21,7 +21,7 @@ export default function AnimeCard(props) {
                         </h3>
                     </a>
                 </div>
-                <div className="collapsible">
+                <div className="project-label circle">
                     <AddToMyList animeId={props.animeId} favorite={props.favorite} />
                 </div>
             </div>
