@@ -162,6 +162,10 @@ nav a:hover {
   background-color: var(--special) !important;
 }
 
+.personalSelected{
+  border-bottom: 3px solid #ffffff;
+}
+
 input:not([type]):focus:not([readonly]){
   border-bottom: 1px solid var(--special);
   box-shadow: 0 1px 0 0 var(--special);

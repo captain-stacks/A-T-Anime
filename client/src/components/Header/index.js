@@ -23,14 +23,14 @@ const Header = () => {
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile">My Anime List</Link>
+              <Link onClick={() => setSelectedSection("animeList")} className={seletedSection === "animeList" && "personalSelected"} to="/profile">My Anime List</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
+              <Link onClick={() => setSelectedSection("Login")} className={seletedSection === "Login" && "personalSelected"} to="/login" >Login</Link>
             </>
           )}
         </nav>
