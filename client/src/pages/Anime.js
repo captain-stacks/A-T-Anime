@@ -95,7 +95,7 @@ const AllAnime = () => {
                     <span className="pr-3">
                         {page}
                     </span>
-                    <button className="waves-effect waves-orange btn-large btn-orange ml-2" onClick={next}>
+                    <button className="waves-effect waves-orange btn-large btn-orange ml-1" onClick={next}>
                         Next page
                     </button>
                 </h4>
