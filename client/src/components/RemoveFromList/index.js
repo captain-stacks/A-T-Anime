@@ -3,6 +3,7 @@ import { ReactSVG } from 'react-svg';
 import { useQuery, useMutation  } from '@apollo/client';
 import { REMOVE_ANIME } from '../../utils/mutations';
 import { QUERY_ME } from '../../utils/queries';
+import $ from "jquery";
 
 
 const RemoveFromList = ({animeId}) => {
@@ -13,7 +14,10 @@ const RemoveFromList = ({animeId}) => {
             'Me'
         ],
     });
-    const handleClick = async() =>{
+    const handleClick = async event => {
+
+        $(event.target).css("display", "none");
+
         try{
             await removeAnime ({
                 variables: {animeId: animeId}
