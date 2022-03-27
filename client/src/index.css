@@ -30,8 +30,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
-  color: var(--dark);
-  background-color: #f3fffee1;
+  color: #ffffff;
+  background-color: #35383E;
 }
 
 h1,
@@ -76,7 +76,7 @@ p {
 }
 
 a {
-  color: var(--dark);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -287,6 +287,7 @@ nav a:hover {
 
 .favAnimeImg{
   height: 60vh;
+  background-color: #202225;
 }
 
 .btn-anime{
@@ -863,7 +864,7 @@ nav a:hover {
 }
 
 .bg-secondary {
-  background-color: var(--secondary);
+  background-color: #660ba2;
 }
 
 .bg-tertiary {
