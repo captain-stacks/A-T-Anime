@@ -65,7 +65,7 @@ const Profile = () => {
   
   const favoriteCheck = (animeList) => {
     meAnime.map(meanime => {
-      if (meanime.anime._id == animeList.anime._id) {
+      if (meanime.anime._id === animeList.anime._id) {
         favorite = true;
       }
     });
@@ -80,7 +80,7 @@ const Profile = () => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         { meFollowing.map(follow => {
-            if (follow._id == user._id || !userParam) {
+            if (follow._id === user._id || !userParam) {
               isfollow = true;
             }
         })}
