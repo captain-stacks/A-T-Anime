@@ -154,6 +154,10 @@ nav a:hover {
   /* display: inline;
 } */
 
+.btn-orange{
+  background-color: var(--special) !important;
+}
+
 /* CARDS */
 .card {
   margin: 0 0 20px 0;

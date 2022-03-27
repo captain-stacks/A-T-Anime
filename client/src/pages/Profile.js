@@ -71,15 +71,15 @@ const Profile = () => {
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-        </h2>
         { meFollowing.map(follow => {
             if (follow._id == user._id || !userParam) {
               isfollow = true;
             }
         })}
         {(!Auth.loggedIn()) ? (isfollow = true) : ('')}
-        {(!isfollow) ? (<button onClick={handleClick}>Follow</button>) : ('')}
+        {(!isfollow) ? (<button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleClick}>Follow</button>) : ('')}
         {isfollow = false}
+        </h2>
       </div>
 
       <div className="justify-space-between mb-3">
