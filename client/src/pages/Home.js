@@ -47,7 +47,7 @@ const Home = () => {
         <form className="col s12" onSubmit={handleFormSubmit}>
           <div className="row">
             <div className="search-wrapper focused">
-              <input id="search" placeholder="Type to search user..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
+              <input id="search" placeholder="Type Find a User..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
               <label htmlFor="search">Find a User: </label>
             </div>
             <button type="submit"></button>
