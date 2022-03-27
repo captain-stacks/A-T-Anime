@@ -69,13 +69,13 @@ const Home = () => {
         </div>
         <div className="center-align pb-4">
                 <h4>
-                    <button onClick={prev} disabled={page === 1}>
+                    <button className="waves-effect waves-orange btn-large btn-orange" onClick={prev} disabled={page === 1}>
                         Previous page
                     </button>
                     <span className="pr-3">
                         {page}
                     </span>
-                    <button onClick={next}>
+                    <button className="waves-effect waves-orange btn-large btn-orange" onClick={next}>
                         Next page
                     </button>
                 </h4>
