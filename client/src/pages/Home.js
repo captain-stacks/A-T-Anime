@@ -67,7 +67,19 @@ const Home = () => {
             )}
           </div>
         </div>
-        <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
+        <div className="center-align pb-4">
+                <h4>
+                    <button onClick={prev} disabled={page === 1}>
+                        Previous page
+                    </button>
+                    <span className="pr-3">
+                        {page}
+                    </span>
+                    <button onClick={next}>
+                        Next page
+                    </button>
+                </h4>
+            </div>
       </div>
     </main>
   );

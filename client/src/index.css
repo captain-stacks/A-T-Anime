@@ -156,7 +156,6 @@ nav a:hover {
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
-  border: 3px solid black;
   border-radius: var(--border-radius);
   background-color: var(--light);
   height: 80%;
