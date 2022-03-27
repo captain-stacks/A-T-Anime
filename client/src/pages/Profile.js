@@ -13,6 +13,8 @@ import Auth from '../utils/auth';
 const Profile = () => {
   const { username: userParam } = useParams();
 
+  console.log(userParam);
+
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { userName: userParam },
   });
@@ -66,7 +68,7 @@ const Profile = () => {
   let isfollow = false;
 
   return (
-    <div>
+    <div className="px-5">
       <div className="flex-row mb-3">
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
@@ -104,6 +106,7 @@ const Profile = () => {
                     image={animeList.anime.coverImageLarge}
                     animeId={animeList.anime._id}
                     favorite={favorite}
+                    userParam={userParam}
                   />
                   {favorite = false}
                 </div>

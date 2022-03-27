@@ -6,14 +6,14 @@ import { useQuery } from '@apollo/client';
 import { Query_Anime_By_Search, QUERY_ME } from '../utils/queries';
 
 const AllAnime = () => {
-    const [ page, setPage ] = useState(1);
-    const [ input, setInput ] = useState('');
-    const [ searchedTitle, setSearchedTitle ] = useState('');
+    const [page, setPage] = useState(1);
+    const [input, setInput] = useState('');
+    const [searchedTitle, setSearchedTitle] = useState('');
 
     const { loading, data } = useQuery(Query_Anime_By_Search, {
-        variables: { 
-            page: page, 
-            title: searchedTitle 
+        variables: {
+            page: page,
+            title: searchedTitle
         }
     });
 
@@ -21,7 +21,7 @@ const AllAnime = () => {
 
     const meRes = useQuery(QUERY_ME);
     const myAnime = meRes.data?.me?.myAnime || [];
-    
+
 
 
     const next = () => {
@@ -53,40 +53,52 @@ const AllAnime = () => {
         <div className="">
             <form className="col s12" onSubmit={handleFormSubmit}>
                 <div className="row">
-                    <div className="search-wrapper focused">
+                    <div className="search-wrapper focused container px-5">
                         <input id="search" placeholder="Type to search user..." value={input} onChange={e => setInput(e.target.value)}></input>
                         <label htmlFor="search">Find a Anime: </label>
                     </div>
                     <button type="submit"></button>
                 </div>
             </form>
-            <ul className='row'>
-                {
-                    animes.map(anime => (
-                        <div key={anime._id}>
+            <div className="container">
+                <ul className='row'>
+                    {
+                        animes.map(anime => (
+                            <div key={anime._id}>
+                                {myAnime.map(myanime => {
+                                    if (myanime.anime._id == anime._id) {
+                                        favorite = true;
+                                    }
+                                })}
 
-                            {myAnime.map(myanime => {
-                                if (myanime.anime._id == anime._id) {
-                                    favorite = true;
-                                }
-                            })}
+                                <AnimeCard
 
-                            
-
-                            <AnimeCard
-                                
-                                title={anime.romajiTitle}
-                                description={anime.description}
-                                image={anime.coverImageLarge}
-                                animeId={anime._id}
-                                favorite={favorite}
-                            />
-                            {favorite = false}
-                        </div>
-                    ))
-                }
-            </ul>
-            <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
+                                    title={anime.romajiTitle}
+                                    description={anime.description}
+                                    image={anime.coverImageLarge}
+                                    animeId={anime._id}
+                                    favorite={favorite}
+                                    noRemove={true}
+                                />
+                                {favorite = false}
+                            </div>
+                        ))
+                    }
+                </ul>
+            </div>
+            <div className="center-align pb-4">
+                <h4>
+                    <button onClick={prev} disabled={page === 1}>
+                        Previous page
+                    </button>
+                    <span className="pr-3">
+                        {page}
+                    </span>
+                    <button onClick={next}>
+                        Next page
+                    </button>
+                </h4>
+            </div>
         </div>
     );
 };

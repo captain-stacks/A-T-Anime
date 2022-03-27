@@ -64,7 +64,6 @@ mutation addAnime($animeId: ID!) {
   }
 `;
 
-// TODO: add to resolvers & Typedef
 export const REMOVE_ANIME = gql`
   mutation removeAnime($animeId: ID!) {
   removeAnime(animeId: $animeId) {

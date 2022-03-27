@@ -46,26 +46,40 @@ const Home = () => {
       <div className="">
         <form className="col s12" onSubmit={handleFormSubmit}>
           <div className="row">
-            <div className="search-wrapper focused">
-              <input id="search" placeholder="Type to search user..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
+            <div className="search-wrapper focused container px-5">
+              <input id="search" placeholder="Type Find a User..." value={searchInput} onChange={e => setSearchInput(e.target.value)}></input>
               <label htmlFor="search">Find a User: </label>
             </div>
             <button type="submit"></button>
           </div>
         </form>
-        <div className={`col-12 mb-3 ${loggedIn}`}>
-          {userRes.loading ? (
-            <div>Loading...</div>
-          ) : (
-            <div>
-              <AllUsersList
-                title="Top Popular Anime Lists"
-                users={users}
-              />
-            </div>
-          )}
+        <div className="container">
+          <div className={`col-12 mb-3 ${loggedIn}`}>
+            {userRes.loading ? (
+              <div>Loading...</div>
+            ) : (
+              <div>
+                <AllUsersList
+                  title="Top Popular Anime Lists"
+                  users={users}
+                />
+              </div>
+            )}
+          </div>
         </div>
-        <button onClick={prev} disabled={page === 1}>Previous page</button><span>{page}</span><button onClick={next}>Next page</button>
+        <div className="center-align pb-4">
+                <h4>
+                    <button onClick={prev} disabled={page === 1}>
+                        Previous page
+                    </button>
+                    <span className="pr-3">
+                        {page}
+                    </span>
+                    <button onClick={next}>
+                        Next page
+                    </button>
+                </h4>
+            </div>
       </div>
     </main>
   );
