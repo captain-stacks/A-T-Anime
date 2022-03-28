@@ -241,6 +241,18 @@ const resolvers = {
 
       return anime;
     },
+
+    updateScore: async (parent, { score }, context) => {
+      if (context.user) {
+
+        const updatedMyAnime = await MyAnime.findOneAndUpdate(
+          { userId: context.user._id },
+          { score: score },
+          { new: true }
+        );
+        return updatedMyAnime;
+      }
+    }
   },
 };
 
