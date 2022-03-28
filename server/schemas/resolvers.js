@@ -18,7 +18,8 @@ const resolvers = {
               path: 'anime',
               model: 'Anime'
             }
-          });
+          })
+          .sort({ myAnime: { score: 'desc' }});
 
         return userData;
       }
