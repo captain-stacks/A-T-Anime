@@ -242,11 +242,11 @@ const resolvers = {
       return anime;
     },
 
-    updateScore: async (parent, { score }, context) => {
+    updateScore: async (parent, { score, myAnimeId }, context) => {
       if (context.user) {
 
         const updatedMyAnime = await MyAnime.findOneAndUpdate(
-          { userId: context.user._id },
+          { _id: myAnimeId, userId: context.user._id },
           { score: score },
           { new: true }
         );

@@ -6,7 +6,7 @@ import AnimeCard from '../components/AnimeCard'
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import { FOLLOW_USER, UNFOLLOW_USER } from '../utils/mutations';
+import { FOLLOW_USER, UNFOLLOW_USER, UPDATE_SCORE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -86,7 +86,7 @@ const Profile = () => {
         favorite = true;
       }
     });
-}
+  }
 
   let favorite = false;
   let isfollow = false;
@@ -98,6 +98,7 @@ const Profile = () => {
       return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleUnfollow}>Unfollow</button>;
     }
   }
+  
 
   return (
     <div className="px-5">
@@ -131,6 +132,8 @@ const Profile = () => {
                     animeId={animeList.anime._id}
                     favorite={favorite}
                     userParam={userParam}
+                    score={animeList.score}
+                    myAnimeId={animeList._id}
                   />
                   {favorite = false}
                 </div>

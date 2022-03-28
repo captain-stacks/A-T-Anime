@@ -144,6 +144,7 @@ export const QUERY_USER = gql`
         username
       }
       myAnime {
+        _id
         userId
         score
         anime {
@@ -184,6 +185,7 @@ export const QUERY_ME = gql`
         username
       }
       myAnime {
+        _id
         userId
         score
         anime {

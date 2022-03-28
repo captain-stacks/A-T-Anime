@@ -1391,6 +1391,7 @@ input:not([type]):focus:not([readonly]){
     z-index: 3;
 }
 
+
 .top-right {
   position: absolute;
   top: 8px;
@@ -1435,8 +1436,7 @@ input[type=time]:not(.browser-default),
 input[type=date]:not(.browser-default), 
 input[type=datetime]:not(.browser-default),
 input[type=datetime-local]:not(.browser-default), 
-input[type=tel]:not(.browser-default), 
-input[type=number]:not(.browser-default), 
+input[type=tel]:not(.browser-default),  
 input[type=search]:not(.browser-default), 
 textarea.materialize-textarea, .form-input,.form-input-cause-i-said-so  {
   background-color: #e8f0fe !important;
@@ -1490,3 +1490,52 @@ html, body {
 }
 
 
+
+form .score-lable {
+  position: absolute !important;
+  border: none !important;
+  padding-bottom: 5px !important;
+  top: -225px !important;
+  right: 16px !important;
+  z-index: 3 !important;
+  width: 50px !important ;
+  height: 45px !important ;
+  background-color: var(--background-sec) !important;
+  border-radius: 50px !important;
+  color: #ffffff;
+  font-size: 30px !important;
+  text-align: center;
+  font-weight: 500 !important;
+  line-height: 100 !important;
+  display: block;
+}
+
+.div-score-lable {
+  position: absolute !important;
+  padding-top: 3px;
+  border: none !important;
+  top: 330px !important;
+  right: 16px !important;
+  z-index: 4 !important;
+  width: 50px !important ;
+  height: 50px !important ;
+  background-color: var(--background-sec) !important;
+  border-radius: 50px !important;
+  color: #ffffff;
+  font-size: 30px !important;
+  text-align: center;
+  font-weight: 500 !important;
+  display: block;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

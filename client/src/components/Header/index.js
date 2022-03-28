@@ -17,20 +17,20 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <h1><Link onClick={() => setSelectedSection("Home")} to="/">ATAnime</Link></h1>
-        <Link onClick={() => setSelectedSection("Home")} className={seletedSection === "Home" && "headerSelected"} to="/">Home</Link>
-        <Link onClick={() => setSelectedSection("Anime")} className={seletedSection === "Anime" && "headerSelected"} to="/anime">Anime</Link>
+        <Link onClick={() => setSelectedSection("Home")} className={(seletedSection === "Home") ? ("headerSelected") : ('')} to="/">Home</Link>
+        <Link onClick={() => setSelectedSection("Anime")} className={(seletedSection === "Anime") ? ("headerSelected") : ('')} to="/anime">Anime</Link>
 
         <nav className="text-center roundedButton">
           {Auth.loggedIn() ? (
             <>
-              <Link onClick={() => setSelectedSection("animeList")} className={seletedSection === "animeList" && "personalSelected"} to="/profile">My Anime List</Link>
+              <Link onClick={() => setSelectedSection("animeList")} className={(seletedSection === "animeList") ? ("personalSelected") : ('')} to="/profile">My Anime List</Link>
               <a href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
             <>
-              <Link onClick={() => setSelectedSection("Login")} className={seletedSection === "Login" && "personalSelected"} to="/login" >Login</Link>
+              <Link onClick={() => setSelectedSection("Login")} className={(seletedSection === "Login") ? ("personalSelected") : ('')} to="/login" >Login</Link>
             </>
           )}
         </nav>

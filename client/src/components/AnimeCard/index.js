@@ -1,9 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AddToMyList from "../AddToMyList/AddToMyList";
 import RemoveFromList from "../RemoveFromList";
+import { UPDATE_SCORE } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
+import $ from "jquery";
 
 export default function AnimeCard(props) {
+
+    const [ animeScore, setAnimeScore ] = useState(props.score);
+
+    const[seletedSection, setSelectedSection] = useState();
+
+    const [updateScore] = useMutation(UPDATE_SCORE, {
+        refetchQueries: [
+          QUERY_ME, // DocumentNode object parsed with gql
+          'Me' // Query name
+        ],
+      });
+    
+
+
+
+    const handleupdateScore = async event => {
+        event.preventDefault();
+        $("#selectedScoreCircle").focus().blur();
+        
+        let i = parseInt(animeScore);
+
+        if (!i) {
+            setAnimeScore(props.score)
+            return;
+        }
+
+        try {
+            await updateScore({
+                variables: { score: i, myAnimeId: props.myAnimeId },
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+
+    const scoreCheck = () => {
+        if (props.score) {
+            if (props.userParam){
+                return <div className="div-score-lable circle">{animeScore}</div>;
+            } 
+        }
+        if (!props.userParam) {
+            return <form name="scoreform" onSubmit={handleupdateScore} className="from-score"><input onClick={() => setSelectedSection(props.myAnimeId)} id={(seletedSection === props.myAnimeId) ? ("selectedScoreCircle") : ('')} name="scoreinput" min="1" max="10" type="number" className="score-lable circle" value={(animeScore ? (animeScore) : (''))} onChange={e => setAnimeScore(e.target.value)} /></form>;
+        }
+        
+    }
+
+
 
     return (
         <li className="btn-anime col s12 m6 l3 ">
@@ -26,6 +79,7 @@ export default function AnimeCard(props) {
                 <div className="project-label circle">
                     <AddToMyList animeId={props.animeId} favorite={props.favorite} />
                 </div>
+                {scoreCheck()}
             </div>
         </li>
     )

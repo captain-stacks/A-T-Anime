@@ -19,6 +19,7 @@ const typeDefs = gql`
   }
 
   type MyAnime {
+    _id: ID
     userId: String
     score: Int
     anime: Anime
@@ -64,7 +65,7 @@ const typeDefs = gql`
     addAnime(animeId: ID!): MyAnime
     removeAnime(animeId: ID!): MyAnime
     unFollow(followingId: ID!): User
-    updateScore(score: Int!): MyAnime
+    updateScore(score: Int!, myAnimeId: ID!): MyAnime
     createAnime(
       englishTitle: String,
       romajiTitle: String,

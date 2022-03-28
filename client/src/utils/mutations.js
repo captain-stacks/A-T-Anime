@@ -110,7 +110,7 @@ export const FOLLOW_USER = gql`
     email
   }
 }
-`
+`;
 
 export const UNFOLLOW_USER = gql`
   mutation unFollow($followingId: ID!) {
@@ -125,4 +125,19 @@ export const UNFOLLOW_USER = gql`
       }
     }
   }
-`
+`;
+
+export const UPDATE_SCORE = gql`
+  mutation UpdateScore($score: Int!, $myAnimeId: ID!) {
+    updateScore(score: $score, myAnimeId: $myAnimeId) {
+      userId
+      score
+      anime {
+        _id
+        englishTitle
+        romajiTitle
+        nativeTitle
+      }
+    }
+  }
+`;
