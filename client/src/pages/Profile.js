@@ -90,6 +90,7 @@ const Profile = () => {
 
   let favorite = false;
   let isfollow = false;
+  let page = "profile";
 
   const followCheck = () => {
     if (!isfollow) {
@@ -98,6 +99,8 @@ const Profile = () => {
       return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleUnfollow}>Unfollow</button>;
     }
   }
+
+
   
 
   return (
@@ -134,6 +137,7 @@ const Profile = () => {
                     userParam={userParam}
                     score={animeList.score}
                     myAnimeId={animeList._id}
+                    page={page}
                   />
                   {favorite = false}
                 </div>

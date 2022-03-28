@@ -1499,7 +1499,7 @@ form .score-lable {
   position: absolute !important;
   border: none !important;
   padding-bottom: 5px !important;
-  top: -225px !important;
+  top: 330px !important;
   right: 16px !important;
   z-index: 3 !important;
   width: 50px !important ;
@@ -1531,6 +1531,7 @@ form .score-lable {
   font-weight: 500 !important;
   display: block;
 }
+
 
 
 input::-webkit-outer-spin-button,
