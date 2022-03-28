@@ -1544,3 +1544,16 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
+.following-card {
+  border-radius: 3px !important;
+}
+
+.anime-card {
+  border-radius: 3px !important;
+}
+
+.anime-img {
+  border-radius: 4px 4px 0px 0px !important;
+}

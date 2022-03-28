@@ -63,14 +63,14 @@ export default function AnimeCard(props) {
     return (
         <li className="btn-anime col s12 m6 l3 ">
             <form name="scoreform" onSubmit={handleupdateScore} className="from-score">
-            <div className="card">
+            <div className=" card">
                 <div className="">
                     <div className="project-label2">
                     {(!props.userParam)?((!props.noRemove)?(<RemoveFromList animeId={props.animeId}/>):('')): ('')}
                     </div>
                 </div>
-                <div className="card-image favAnimeImg">
-                    <img className="card medium responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
+                <div className="anime-card card-image favAnimeImg">
+                    <img className="anime-img card medium responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
                     <a href={props.image} className="favAnimeContainer">
                         <h3 className="">
                             <span className="center-align">

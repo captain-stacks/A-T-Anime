@@ -148,7 +148,7 @@ const Profile = () => {
             <div className="row">
               <div className="">
                 <div className="card blue-grey darken-1">
-                  <div className="card-content white-text bkg-color">
+                  <div className="following-card card-content white-text bkg-color">
                     <span className="card-title underlineHeader"> {userParam ? `${user.username} is` : 'Your'} following :</span>
                     {!user.following[0] ? "[nobody]" : ""}
                     {
