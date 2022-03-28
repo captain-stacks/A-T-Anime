@@ -57,7 +57,7 @@ const resolvers = {
     },
 
     userSearchBar: async (parent, { page, userName }) => {
-      const user = await User.find({ username: { $regex: `^${userName}`, $options: "i" } }, function(err, docs) {
+      const user = await User.find({ username: { $regex: `${userName}`, $options: "i" } }, function(err, docs) {
         if (err) console.log(err);
         console.log(userName);
         })
@@ -79,11 +79,11 @@ const resolvers = {
     getAnimeBySearch: async (parent, { page, title }) => {
       const anime = await Anime.find({ $or: [ { 
         romajiTitle: { 
-          $regex: `^${title}`, 
+          $regex: `${title}`, 
           $options: "i" 
         }}, { 
         englishTitle: { 
-          $regex: `^${title}`, 
+          $regex: `${title}`, 
           $options: "i" 
         }}]})
         .limit(51)

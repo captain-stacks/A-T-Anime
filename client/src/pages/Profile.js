@@ -93,9 +93,9 @@ const Profile = () => {
   let page = "profile";
 
   const followCheck = () => {
-    if (!isfollow) {
+    if (!isfollow && userParam) {
       return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleClick}>Follow</button>;
-    } else if (userParam) {
+    } else if (isfollow && userParam) {
       return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleUnfollow}>Unfollow</button>;
     }
   }
