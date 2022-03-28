@@ -73,9 +73,10 @@ export default function AnimeCard(props) {
                     <img className="anime-img card medium responsive-imgfavAnimeImg anime-card-height" alt="" src={props.image} />
                     <a href={props.image} className="favAnimeContainer">
                         <h3 className="">
-                            <span className="center-align">
+                            <div className="anime-title center-align">
                                 {props.title}
-                            </span>
+                            </div>
+                            
                         </h3>
                     </a>
                 </div>
