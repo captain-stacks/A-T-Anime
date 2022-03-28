@@ -328,6 +328,10 @@ input:not([type]):focus:not([readonly]){
   width: calc(100% - 5px - 5px);
 }
 
+.underlineHeader{
+  border-bottom: 2px solid #ffffff;
+}
+
 /* .favAnimeContainer{ */
   /* position: relative; */
 /* } */
