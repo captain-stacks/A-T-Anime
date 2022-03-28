@@ -113,6 +113,7 @@ nav a:hover {
   position: absolute;
   bottom: 5%;
   text-align: center;
+  width: 95%;
 }
 
 /* .lineBreak{
@@ -1588,3 +1589,4 @@ input[type=number] {
   text-overflow: ellipsis;
 }
 /* end User display */
+
