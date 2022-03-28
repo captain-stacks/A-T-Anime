@@ -71,7 +71,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <button className="btn waves-effect waves-light" type="submit">
-                Log In <i class="material-icons right">send</i>
+                Log In <i className="material-icons right">send</i>
               </button>
             </form>
             <p className='pLogin-Signup'>

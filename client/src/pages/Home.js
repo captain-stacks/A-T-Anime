@@ -34,9 +34,11 @@ const Home = () => {
   const handleFormSubmit = event => {
     event.preventDefault();
 
-    if (!searchInput) {
+    setPage(1);
+
+/*     if (!searchInput) {
       return false;
-    }
+    } */
 
     handleSearch(searchInput);
   };
@@ -74,7 +76,7 @@ const Home = () => {
                     <span className="pr-3">
                         {page}
                     </span>
-                    <button className="waves-effect waves-orange btn-large btn-orange" onClick={next}>
+                    <button className="waves-effect waves-orange btn-large btn-orange" onClick={next} disabled={users.length < 53}>
                         Next page
                     </button>
                 </h4>

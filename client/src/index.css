@@ -307,7 +307,7 @@ input:not([type]):focus:not([readonly]){
 }
 
 .favAnimeImg{
-  height: 60vh;
+  height: 510px;
   background-color: #202225;
 }
 
@@ -1494,7 +1494,7 @@ html, body {
 }
 
 
-
+/* Score */
 form .score-lable {
   position: absolute !important;
   border: none !important;
@@ -1533,7 +1533,7 @@ form .score-lable {
 }
 
 
-
+/* Disable up and down arrows for score */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -1545,15 +1545,32 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* end Disable up and down arrows for score */
 
+/* end Score */
+
+/* Following card */
 .following-card {
   border-radius: 3px !important;
 }
+/* end Following card */
 
+/* Anime Card */
 .anime-card {
   border-radius: 3px !important;
+
 }
 
 .anime-img {
   border-radius: 4px 4px 0px 0px !important;
 }
+
+.anime-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Anime Card */

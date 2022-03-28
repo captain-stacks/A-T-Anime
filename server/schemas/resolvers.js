@@ -73,7 +73,7 @@ const resolvers = {
             model: 'Anime'
           }
         })
-        .limit(52)
+        .limit(53)
         .skip((page * 52) - 52);
       return user;
     },
@@ -88,7 +88,7 @@ const resolvers = {
           $regex: `${title}`, 
           $options: "i" 
         }}]})
-        .limit(52)
+        .limit(53)
         .skip((page * 52) - 52);
       return anime;
     },

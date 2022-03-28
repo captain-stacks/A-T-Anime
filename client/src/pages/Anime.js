@@ -39,9 +39,11 @@ const AllAnime = () => {
     const handleFormSubmit = event => {
         event.preventDefault();
 
-        if (!input) {
+        setPage(1);
+
+/*         if (!input) {
             return false;
-        }
+        } */
 
         handleSearch(input);
     }
@@ -54,7 +56,14 @@ const AllAnime = () => {
         })
     }
 
+
+
+    let i = 0;
     let favorite = false;
+
+    const addToI = () => {
+        i = i + 1
+    }
 
 
     return (
@@ -72,19 +81,22 @@ const AllAnime = () => {
                     {
                         animes.map(anime => (
                             <div key={anime._id}>
-                                {favoriteCheck(anime)}
-                                {(!Auth.loggedIn()) ? (favorite = true) : ('')}
-
-                                <AnimeCard
-
-                                    title={anime.romajiTitle}
-                                    description={anime.description}
-                                    image={anime.coverImageLarge}
-                                    animeId={anime._id}
-                                    favorite={favorite}
-                                    noRemove={true}
-                                />
-                                {favorite = false}
+                                {(i >= 52) ? ('') : (
+                                    <div>
+                                        {addToI()}
+                                        {favoriteCheck(anime)}
+                                        {(!Auth.loggedIn()) ? (favorite = true) : ('')}
+                                        <AnimeCard
+                                            title={anime.romajiTitle}
+                                            description={anime.description}
+                                            image={anime.coverImageLarge}
+                                            animeId={anime._id}
+                                            favorite={favorite}
+                                            noRemove={true}
+                                        />
+                                        {favorite = false}
+                                    </div>
+                                )}
                             </div>
                         ))
                     }
@@ -98,7 +110,7 @@ const AllAnime = () => {
                     <span className="pr-3">
                         {page}
                     </span>
-                    <button className="waves-effect waves-orange btn-large btn-orange ml-1" onClick={next}>
+                    <button className="waves-effect waves-orange btn-large btn-orange ml-1" onClick={next} disabled={animes.length < 53}>
                         Next page
                     </button>
                 </h4>
