@@ -1480,4 +1480,9 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
   align-items: center !important;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
