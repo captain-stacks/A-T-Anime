@@ -13,7 +13,7 @@ db.once('open', async () => {
     // create user data seed
     const userData = [];
 
-    for (let i = 0; i < 75; i += 1) {
+    for (let i = 0; i < 104; i += 1) {
         const username = faker.internet.userName();
         const email = faker.internet.email(username);
         const password = faker.internet.password();

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 const userSearchBox = (props) => {
 	return (
@@ -13,4 +13,4 @@ const userSearchBox = (props) => {
 	);
 };
 
-export default userSearchBox;
+export default userSearchBox; */
