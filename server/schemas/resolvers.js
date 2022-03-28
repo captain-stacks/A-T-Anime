@@ -86,7 +86,7 @@ const resolvers = {
           $regex: `${title}`, 
           $options: "i" 
         }}]})
-        .limit(51)
+        .limit(52)
         .skip((page * 52) - 52);
       return anime;
     },
