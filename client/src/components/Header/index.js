@@ -20,7 +20,7 @@ const Header = () => {
         <Link onClick={() => setSelectedSection("Home")} className={seletedSection === "Home" && "headerSelected"} to="/">Home</Link>
         <Link onClick={() => setSelectedSection("Anime")} className={seletedSection === "Anime" && "headerSelected"} to="/anime">Anime</Link>
 
-        <nav className="text-center">
+        <nav className="text-center roundedButton">
           {Auth.loggedIn() ? (
             <>
               <Link onClick={() => setSelectedSection("animeList")} className={seletedSection === "animeList" && "personalSelected"} to="/profile">My Anime List</Link>

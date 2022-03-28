@@ -839,6 +839,10 @@ input:not([type]):focus:not([readonly]){
   text-transform: uppercase;
 }
 
+.roundedButton{
+  border-radius: 10px;
+}
+
 .text-center {
   text-align: center;
 }
