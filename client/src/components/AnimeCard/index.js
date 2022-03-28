@@ -76,7 +76,6 @@ export default function AnimeCard(props) {
                             <div className="anime-title center-align">
                                 {props.title}
                             </div>
-                            
                         </h3>
                     </a>
                 </div>
