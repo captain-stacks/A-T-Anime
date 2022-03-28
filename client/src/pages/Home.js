@@ -34,9 +34,11 @@ const Home = () => {
   const handleFormSubmit = event => {
     event.preventDefault();
 
-    if (!searchInput) {
+    setPage(1);
+
+/*     if (!searchInput) {
       return false;
-    }
+    } */
 
     handleSearch(searchInput);
   };
