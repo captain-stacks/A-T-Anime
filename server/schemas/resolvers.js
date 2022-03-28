@@ -14,12 +14,12 @@ const resolvers = {
           .populate({
             path: 'myAnime',
             model: 'MyAnime',
+            options: { sort: { score: -1 } },
             populate: {
               path: 'anime',
               model: 'Anime'
             }
-          })
-          .sort({ myAnime: { score: 'desc' }});
+          });
 
         return userData;
       }
@@ -48,6 +48,7 @@ const resolvers = {
       .populate({
         path: 'myAnime',
         model: 'MyAnime',
+        options: { sort: { score: -1 } },
         populate: {
           path: 'anime',
           model: 'Anime'
