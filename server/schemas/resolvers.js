@@ -124,9 +124,9 @@ const resolvers = {
     },
 
     isFollow: async (parent, { followingId }, context) => {
-      console.log(followingId, context.user._id);
+      
       const following = await User.findOne({$and: [ {_id: context.user._id}, {following: followingId}]});
-      console.log(following);
+      
       return following;
     }
   },
@@ -209,7 +209,7 @@ const resolvers = {
 
         const removedAnime = await MyAnime.findOneAndDelete({ userId: context.user._id, anime: [args.animeId] })
         .populate('anime');
-        console.log(removedAnime);
+        
 
         return removedAnime;
       }
