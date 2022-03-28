@@ -63,7 +63,7 @@ const AllAnime = () => {
                 <div className="row">
                     <div className="search-wrapper focused container px-5">
                         <input autoComplete="off" id="search" placeholder="Type to search user..." value={input} onChange={e => setInput(e.target.value)}></input>
-                        <label htmlFor="search">Find a Anime: </label>
+                        <label htmlFor="search">Find an Anime: </label>
                     </div>
                 </div>
             </form>
