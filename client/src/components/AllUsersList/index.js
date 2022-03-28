@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AllUsersList = ({ users, title }) => {
     if (!users.length) {
-        return <h3>No users Yet</h3>;
+        return <h3>No users</h3>;
     }
 
     return (

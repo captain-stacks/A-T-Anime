@@ -87,7 +87,7 @@ const resolvers = {
           $options: "i" 
         }}]})
         .limit(51)
-        .skip((page * 51) - 51);
+        .skip((page * 52) - 52);
       return anime;
     },
     // get all users
