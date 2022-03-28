@@ -6,7 +6,7 @@ import AnimeCard from '../components/AnimeCard'
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import { FOLLOW_USER } from '../utils/mutations';
+import { FOLLOW_USER, UNFOLLOW_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -25,6 +25,13 @@ const Profile = () => {
       QUERY_ME, // DocumentNode object parsed with gql
       'Me' // Query name
     ],
+  });
+
+  const [unFollowUser] = useMutation(UNFOLLOW_USER, {
+    refetchQueries: [
+      QUERY_ME,
+      'Me'
+    ]
   });
 
   const meRes = useQuery(QUERY_ME);
@@ -62,6 +69,16 @@ const Profile = () => {
       console.error(e);
     }
   };
+
+  const handleUnfollow = async () => {
+    try {
+      await unFollowUser({
+        variables: { followingId: user._id }
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
   
   const favoriteCheck = (animeList) => {
     meAnime.map(meanime => {
@@ -74,6 +91,14 @@ const Profile = () => {
   let favorite = false;
   let isfollow = false;
 
+  const followCheck = () => {
+    if (!isfollow) {
+      return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleClick}>Follow</button>;
+    } else if (userParam) {
+      return <button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleUnfollow}>Unfollow</button>;
+    }
+  }
+
   return (
     <div className="px-5">
       <div className="flex-row mb-3">
@@ -85,7 +110,7 @@ const Profile = () => {
             }
         })}
         {(!Auth.loggedIn()) ? (isfollow = true) : ('')}
-        {(!isfollow) ? (<button className="waves-effect waves-orange btn-small btn-orange ml-5" onClick={handleClick}>Follow</button>) : ('')}
+        {followCheck()}
         {isfollow = false}
         </h2>
       </div>

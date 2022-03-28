@@ -95,7 +95,7 @@ export const QUERY_USER_BY_ID = gql`
 `;
 
 
-export const QUERY_THOUGHTS = gql`
+/* export const QUERY_THOUGHTS = gql`
   query thoughts($username: String) {
     thoughts(username: $username) {
       _id
@@ -129,7 +129,7 @@ export const QUERY_THOUGHT = gql`
       }
     }
   }
-`;
+`; */
 
 export const QUERY_USER = gql`
   query UserByUserName($userName: String!) {

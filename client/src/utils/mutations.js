@@ -24,7 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
+/* export const ADD_THOUGHT = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {
       _id
@@ -52,7 +52,7 @@ export const ADD_REACTION = gql`
       }
     }
   }
-`;
+`; */
 export const ADD_ANIME = gql`
 mutation addAnime($animeId: ID!) {
   addAnime(animeId: $animeId) {
@@ -75,7 +75,7 @@ export const REMOVE_ANIME = gql`
   }
 `;
 
-export const ADD_FRIEND = gql`
+/* export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
       _id
@@ -100,7 +100,7 @@ export const REMOVE_FRIEND = gql`
       }
     }
   }
-`;
+`; */
 
 export const FOLLOW_USER = gql`
   mutation Mutation($followingId: ID!) {
@@ -110,4 +110,19 @@ export const FOLLOW_USER = gql`
     email
   }
 }
+`
+
+export const UNFOLLOW_USER = gql`
+  mutation unFollow($followingId: ID!) {
+    unFollow(followingId: $followingId) {
+      _id
+      username
+      email
+      following {
+        _id
+        username
+        email
+      }
+    }
+  }
 `

@@ -155,6 +155,25 @@ const resolvers = {
       }
     },
 
+    unFollow: async (parent, { followingId }, context) => {
+      if (context.user) {
+
+        const follower = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { following: followingId } },
+          { new: true }
+        ).populate("following");
+
+        const followedUser = await User.findOneAndUpdate(
+          { _id: followingId },
+          { $pull: { followers: context.user._id } },
+          { new: true }
+        ).populate("followers");
+
+        return follower;
+      }
+    },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

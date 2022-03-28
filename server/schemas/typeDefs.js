@@ -63,6 +63,7 @@ const typeDefs = gql`
     follow(followingId: ID!): User
     addAnime(animeId: ID!): MyAnime
     removeAnime(animeId: ID!): MyAnime
+    unFollow(followingId: ID!): User
     createAnime(
       englishTitle: String,
       romajiTitle: String,
