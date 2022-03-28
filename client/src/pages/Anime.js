@@ -71,7 +71,7 @@ const AllAnime = () => {
             <form className="col s12" onSubmit={handleFormSubmit}>
                 <div className="row">
                     <div className="search-wrapper focused container px-5">
-                        <input autoComplete="off" id="search" placeholder="Type to search user..." value={input} onChange={e => setInput(e.target.value)}></input>
+                        <input autoComplete="off" id="search" placeholder="Type to search anime..." value={input} onChange={e => setInput(e.target.value)}></input>
                         <label htmlFor="search">Find an Anime: </label>
                     </div>
                 </div>

@@ -1574,3 +1574,17 @@ input[type=number] {
 }
 
 /* Anime Card */
+
+/* User display */
+.username-text {
+  width: 95%;
+  padding-left: 2.5% !important;
+  padding-right: 0% !important;
+}
+
+.username-text h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* end User display */

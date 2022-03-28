@@ -36,7 +36,7 @@ const AllUsersList = ({ users, title }) => {
 
                                         
                                     </div>
-                                    <div className="card-content">
+                                    <div className="username-text card-content">
                                         <h3 className="center-align">
                                             {user.username}
                                         </h3>
