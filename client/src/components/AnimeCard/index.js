@@ -24,9 +24,11 @@ export default function AnimeCard(props) {
 
 
 
-    const handleupdateScore = async event => {
+    const handleupdateScore = async (event, blur) => {
         event.preventDefault();
-        $("#selectedScoreCircle").focus().blur();
+        if (!blur) {
+            $("#selectedScoreCircle").focus().blur();
+        }
         
         let i = parseInt(animeScore);
 
@@ -53,7 +55,7 @@ export default function AnimeCard(props) {
         }
 
         if (!props.userParam && props.page === "profile") {
-            return <input onClick={() => setSelectedSection(props.myAnimeId)} id={(seletedSection === props.myAnimeId) ? ("selectedScoreCircle") : ('')} name="scoreinput" min="1" max="10" type="number" className="score-lable circle" value={(animeScore ? (animeScore) : (''))} onChange={e => setAnimeScore(e.target.value)} />;
+            return <input onBlur={(event) => handleupdateScore(event, 'blur')} onClick={() => setSelectedSection(props.myAnimeId)} id={(seletedSection === props.myAnimeId) ? ("selectedScoreCircle") : ('')} name="scoreinput" min="1" max="10" type="number" className="score-lable circle" value={(animeScore ? (animeScore) : (''))} onChange={e => setAnimeScore(e.target.value)} />;
         }
         
     }
@@ -62,7 +64,7 @@ export default function AnimeCard(props) {
 
     return (
         <li className="btn-anime col s12 m6 l3 ">
-            <form name="scoreform" onSubmit={handleupdateScore} className="from-score">
+            <form name="scoreform" onSubmit={(event) => handleupdateScore(event)} className="from-score">
             <div className=" card">
                 <div className="">
                     <div className="project-label2">
