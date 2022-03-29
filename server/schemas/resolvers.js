@@ -68,6 +68,7 @@ const resolvers = {
         .populate({
           path: 'myAnime',
           model: 'MyAnime',
+          options: { sort: { score: -1 } },
           populate: {
             path: 'anime',
             model: 'Anime'
