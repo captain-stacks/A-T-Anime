@@ -144,7 +144,7 @@ const Profile = () => {
               ))
             }
           </ul>
-          <div className='col s3'>
+          <div id='following-box' className='col m12 l3 hide-on-med-and-down'>
             <div className="row">
               <div className="">
                 <div className="card blue-grey darken-1">
