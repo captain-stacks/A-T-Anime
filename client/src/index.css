@@ -1589,4 +1589,79 @@ input[type=number] {
   text-overflow: ellipsis;
 }
 /* end User display */
+@media screen and (max-width: 980px) {
+  header {
+    height: 110px;
+    flex-direction: column;
+}
+header nav {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+header nav a {
+font-size: 25px;
+flex-direction: column;
+margin: auto;
 
+}
+
+.flex {
+flex-direction: column;
+}
+}
+  @media screen and (max-width: 768px) {
+    header {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: auto;
+      align-items: center;
+  }
+  header  h1 {
+      font-size: 35px;
+  }
+  header nav {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+  }
+  header nav a {
+    font-size: 25px;
+    flex-direction: column;
+    margin: auto;
+    
+}
+
+.flex {
+    flex-direction: column;
+}
+  }
+    @media screen and (max-width: 575px) {
+header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+        align-items: center;
+    }
+    header  h1 {
+        font-size: 30px;
+    }
+    header nav {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    header nav a {
+      font-size: 20px;
+      flex-direction: column;
+      margin: auto;
+  }
+  .flex {
+    flex-direction: column;
+}
+    }
