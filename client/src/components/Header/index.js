@@ -15,10 +15,10 @@ const Header = () => {
 
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+      <div className="container flex-row flex justify-space-between-lg justify-center align-center">
         <h1><Link onClick={() => setSelectedSection("Home")} className="fontWebsite" to="/">AtAnime</Link></h1>
-        <Link id="nav-margin" onClick={() => setSelectedSection("Home")} className={(seletedSection === "Home") ? ("headerSelected") : ('')} id="fontWebsiteNav"  to="/">Home</Link>
-        <Link id="nav-margin" onClick={() => setSelectedSection("Anime")} className={(seletedSection === "Anime") ? ("headerSelected") : ('')} id="fontWebsiteNav" to="/anime">Anime</Link>
+        <Link id="fontWebsiteNav" onClick={() => setSelectedSection("Home")} className={(seletedSection === "Home") ? ("headerSelected") : ('')}  to="/">Home</Link>
+        <Link id="fontWebsiteNav" onClick={() => setSelectedSection("Anime")} className={(seletedSection === "Anime") ? ("headerSelected") : ('')} to="/anime">Anime</Link>
 
         <nav className="text-center roundedButton">
           {Auth.loggedIn() ? (
