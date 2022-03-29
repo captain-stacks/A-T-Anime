@@ -126,6 +126,10 @@ nav a:hover {
   width: 95%;
 }
 
+#nav-margin {
+  margin-left: 25px;
+  margin-right: 25px;
+}
 /* .lineBreak{
   /* border-right: 5px solid black; */
 /* } */ 
