@@ -13,6 +13,20 @@ Web app that makes it easy to find anime via list other people make. In these li
 * WebPage Link: [AtAnime](https://atanime.herokuapp.com/
 )
 
+## Built With
+* CSS
+* React
+* Node
+* JWT
+* MongoDB
+* Mongoose
+* GraphQL
+* Apollo Client
+* Heroku
+* Materialize
+* React Router
+
+
 ## Screen-Shots
 ![image](https://user-images.githubusercontent.com/91098174/160728940-46fd2563-a5ab-4e2e-8c16-2b9d1e10aac7.png)
 ![image](https://user-images.githubusercontent.com/91098174/160729009-c621d9a7-f034-4eba-b568-19e93d3653b2.png)
