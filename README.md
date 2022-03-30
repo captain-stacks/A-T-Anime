@@ -25,6 +25,7 @@ Web app that makes it easy to find anime via list other people make. In these li
 * Heroku
 * Materialize
 * React Router
+* Anilist Api
 
 
 ## Screen-Shots
