@@ -21,7 +21,7 @@ import YourList from './pages/YourList';
 import Registersignup from './pages/Registerlogin';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: (process.env.REACT_APP_SERVER_URL || '') + '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
